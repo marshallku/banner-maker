@@ -1,0 +1,300 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@font-face {
+    font-family: DungGeunMo;
+    src: url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff) format('woff');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: BMJUA;
+    src: url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff) format('woff');
+    font-weight: 400;
+    font-style: normal
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    fill: #f1f1f1
+}
+
+@keyframes materialRipple {
+    0% {
+        transform: translate(-50%, -50%) scale(1)
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(var(--material-scale));
+        opacity: 0
+    }
+}
+
+*,::before,::after{box-sizing: border-box;-webkit-tap-highlight-color:transparent}
+a,body,canvas,div,html,input,li,p,textarea,ul,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline;background:0}
+body{line-height:1;-webkit-text-size-adjust:none;overflow-x:hidden;word-break:break-all}
+li,ol,ul{list-style:none}
+br{color:transparent}
+a, input {
+    text-decoration: none;
+    color: #f1f1f1
+}
+a:hover {
+    color: #aaa
+}
+
+body {
+    background: #121212;
+    color: #f1f1f1;
+    padding: 20px 10px
+}
+
+.preload * {
+    transition:0s!important
+}
+
+body, input {
+    font-family: DungGeunMo
+}
+
+[data-font="sans-serif"] {
+    font-family: sans-serif
+}
+
+[data-font="Noto Sans KR"] {
+    font-family: "Noto Sans KR"
+}
+
+[data-font="Nanum Gothic"] {
+    font-family: Nanum Gothic
+}
+
+[data-font="DungGeunMo"] {
+    font-family: DungGeunMo
+}
+
+[data-font="BMJUA"] {
+    font-family: BMJUA
+}
+
+input {
+    outline: 0;
+    width: 250px;
+}
+
+input[type=range] {
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: revert;
+    max-width: 100%
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    background: #343434
+}
+
+input[type=range]::-webkit-slider-thumb {
+    width: 15px;
+    height: 15px;
+    margin-top: -5px;
+    background: #ccc;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    cursor: pointer
+}
+
+.flex {
+    display: flex
+}
+
+.hidden {
+    display: none
+}
+
+.center {
+    text-align: center;
+    align-items: center;
+    justify-content: center
+}
+
+.column {
+    flex-direction: column
+}
+
+.button {
+    display: inline-flex;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px 15px;
+    box-shadow: #333 0 0 0 2px inset;
+    transition: .3s cubic-bezier(.39, .5, .15, 1)
+}
+
+.button:hover {
+    box-shadow: #666 0 0 0 40px inset;
+    color: #f1f1f1
+}
+
+.icon-upload, .icon-download {
+    margin-right: 5px
+}
+
+.material-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.material-ripple .animate {
+    width: 2px;
+    height: 2px;
+    position: absolute;
+    border-radius: 50%;
+    background: #bdc3c7;
+    pointer-events: none;
+    animation: materialRipple 0.5s linear
+}
+
+.inputWrap {
+    display: flex;
+    border: 1px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.inputWrap.alt {
+    position: relative;
+    overflow: visible
+}
+
+.inputWrap>span, .inputWrap>input:not([type="range"]) {
+    display: inline-block;
+    padding: 10px
+}
+
+.inputWrap>span {
+    flex-shrink: 0;
+    box-sizing: content-box;
+    border-right: 1px solid #333
+}
+
+.inputWrap>div {
+    position: relative;
+    display: inline-block;
+    width: 250px;
+    padding: 10px;
+}
+
+.margin {
+    margin-bottom: 20px
+}
+
+.transWrap>div {
+    margin-bottom: 10px
+}
+
+#resize {
+    flex-wrap: wrap
+}
+
+#resize .inputWrap {
+    margin: 0 5px 10px
+}
+
+#preview {
+    margin: 30px 0;
+    max-width: 100%;
+    max-height: 80vh
+}
+
+#textWrap {
+    position: relative;
+    margin-bottom: 30px
+}
+
+#text {
+    width: 90vw;
+    max-width: 300px;
+    padding: 10px 20px;
+    line-height: 1.5;
+    text-align: center
+}
+
+#text::placeholder {
+    transition: .5s
+}
+
+#text:focus::placeholder {
+    opacity: 0
+}
+
+#textWrap .line {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+    transform: scale(0);
+    opacity: 0;
+    transition: .5s
+}
+
+#text:focus ~ .line, #text:hover ~ .line {
+    transform: scaleX(1);
+    opacity: 1
+}
+
+#download {
+    margin-top: 30px
+}
+
+.dropdown_btn {
+    cursor: pointer;
+    user-select: none
+}
+
+.dropdown_btn .icon-angle-down {
+    position: absolute;
+    right: 10px;
+    transition: transform .5s
+}
+
+.dropdown_btn.activated .icon-angle-down {
+    transform: rotate(180deg)
+}
+
+.dropdown_content {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: .5s
+}
+
+.dropdown_content.dropdown_reveal {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+#fontList {
+    width: 250px;
+    top: calc(100% + 10px);
+    right: 0;
+    background: #121212;
+    border: 1px solid #333;
+    border-radius: 10px
+}
+
+#fontList li {
+    padding: 10px;
+    cursor: pointer
+}
