@@ -3,3 +3,5 @@
 <img src="./preview.png" alt="preview">
 
 Live Demo : https://marshall-ku.com/canvas-thumbnail-maker
+
+How to Use (ko) : https://marshall-ku.com/work/web-application/canvas-%ec%8d%b8%eb%84%a4%ec%9d%bc-%eb%b0%b0%eb%84%88-%ec%a0%9c%ec%9e%91%ea%b8%b0
