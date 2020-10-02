@@ -161,23 +161,23 @@ document.querySelectorAll(".dropdown_btn").forEach((element) => {
         dropdown(element.dataset.dropdown);
         element.classList.toggle("activated");
     });
-}),
-    document.querySelectorAll(".material-ripple").forEach((element) => {
-        element.addEventListener("click", (e) => {
-            const ripple = document.createElement("div");
-            const rect = element.getBoundingClientRect();
+});
+document.querySelectorAll(".material-ripple").forEach((element) => {
+    element.addEventListener("click", (e) => {
+        const ripple = document.createElement("div");
+        const rect = element.getBoundingClientRect();
 
-            ripple.className = "animate";
-            ripple.style.left = `${e.x - rect.left}px`;
-            ripple.style.top = `${e.y - rect.top}px`;
-            ripple.style.setProperty("--material-scale", element.offsetWidth);
-            element.append(ripple);
+        ripple.className = "animate";
+        ripple.style.left = `${e.x - rect.left}px`;
+        ripple.style.top = `${e.y - rect.top}px`;
+        ripple.style.setProperty("--material-scale", element.offsetWidth);
+        element.append(ripple);
 
-            setTimeout(() => {
-                ripple.parentNode.removeChild(ripple);
-            }, 500);
-        });
+        setTimeout(() => {
+            ripple.parentNode.removeChild(ripple);
+        }, 500);
     });
+});
 window.addEventListener("click", (e) => {
     const target = e.target;
 
