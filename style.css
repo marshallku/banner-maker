@@ -1,17 +1,25 @@
-@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
-@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @font-face {
     font-family: DungGeunMo;
-    src: url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff) format('woff');
+    src: local(DungGeunMo), url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff) format('woff');
     font-weight: 400;
-    font-style: normal
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: BMJUA;
-    src: url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff) format('woff');
+    src: local(BMJUA), url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff) format('woff');
     font-weight: 400;
-    font-style: normal
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: ghanachoco;
+    src: local(ghanachoco), url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff) format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 [class^="icon-"],
@@ -69,7 +77,7 @@ body, input {
 }
 
 [data-font="Nanum Gothic"] {
-    font-family: Nanum Gothic
+    font-family: "Nanum Gothic"
 }
 
 [data-font="DungGeunMo"] {
@@ -78,6 +86,14 @@ body, input {
 
 [data-font="BMJUA"] {
     font-family: BMJUA
+}
+
+[data-font="Black Han Sans"] {
+    font-family: "Black Han Sans"
+}
+
+[data-font="ghanachoco"] {
+    font-family: "ghanachoco"
 }
 
 input {

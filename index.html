@@ -4,7 +4,10 @@
 <head>
     <title>Canvas Thumbnail Maker</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css" id="mainCSS">
+    <link rel="stylesheet" async href="style.css" id="mainCSS">
+    <link rel="stylesheet" async href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
+    <link rel="stylesheet" async href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    <link rel="stylesheet" async href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" href="https://marshall-ku.com/wp-content/uploads/2019/07/favicon.ico">
     <meta property="og:site_name" content="혼자 끄적이는 블로그">
@@ -38,6 +41,8 @@
                 <li class="material-ripple" data-font="Nanum Gothic">Nanum Gothic</li>
                 <li class="material-ripple" data-font="DungGeunMo">DungGeunMo</li>
                 <li class="material-ripple" data-font="BMJUA">BMJUA</li>
+                <li class="material-ripple" data-font="Black Han Sans">Black Han Sans</li>
+                <li class="material-ripple" data-font="ghanachoco">Ghana Choco</li>
             </ul>
         </div>
         <div class="inputWrap margin"><span>Font Size</span><input type="number" id="fontSize" value="32"></div>
@@ -48,8 +53,8 @@
         <div class="flex center column margin transWrap hidden"><div>Background Image Transparency</div><input type="range" id="transparency" value="0"></div>
         <a href="#" id="download" download="thumbnail" class="button center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 416 448" class="icon-download"><path d="M320 336c0-8.75-7.25-16-16-16s-16 7.25-16 16 7.25 16 16 16 16-7.25 16-16zM384 336c0-8.75-7.25-16-16-16s-16 7.25-16 16 7.25 16 16 16 16-7.25 16-16zM416 280v80c0 13.25-10.75 24-24 24h-368c-13.25 0-24-10.75-24-24v-80c0-13.25 10.75-24 24-24h116.25l33.75 34c9.25 9 21.25 14 34 14s24.75-5 34-14l34-34h116c13.25 0 24 10.75 24 24zM334.75 137.75c2.5 6 1.25 13-3.5 17.5l-112 112c-3 3.25-7.25 4.75-11.25 4.75s-8.25-1.5-11.25-4.75l-112-112c-4.75-4.5-6-11.5-3.5-17.5 2.5-5.75 8.25-9.75 14.75-9.75h64v-112c0-8.75 7.25-16 16-16h64c8.75 0 16 7.25 16 16v112h64c6.5 0 12.25 4 14.75 9.75z"/></svg> Download Image</a>
     </div>
-    <script src="script.js"></script>
-    <script src="jscolor.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="jscolor.js"></script>
 </body>
 
 </html>
