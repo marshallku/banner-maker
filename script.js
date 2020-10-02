@@ -35,14 +35,14 @@ function init() {
 
 function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = `#${BG.value}`;
+    ctx.fillStyle = BG.value;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(pseudo, 0, 0, canvas.width, canvas.height);
     ctx.textAlign = "center";
     ctx.font = `${SIZE.value}px ${font}`;
     ctx.textBaseline = "middle";
     ctx.maxWidth = canvas.width;
-    ctx.fillStyle = `#${TEXTCOLOR.value}`;
+    ctx.fillStyle = TEXTCOLOR.value;
     ctx.fillText(
         input === 0 ? "Sample Text" : TEXT.value,
         canvas.width / 2,
@@ -143,11 +143,7 @@ BG.addEventListener("change", render);
 BG.addEventListener("keydown", render);
 BG.addEventListener("keyup", render);
 TEXTCOLOR.addEventListener("change", render);
-TEXTCOLOR.addEventListener("keydown", render);
-TEXTCOLOR.addEventListener("keyup", render);
 SIZE.addEventListener("change", render);
-SIZE.addEventListener("keydown", render);
-SIZE.addEventListener("keyup", render);
 TRANS.addEventListener("change", pseudoRepaint);
 TRANS.addEventListener("input", pseudoRepaint);
 document.getElementById("bgImage").addEventListener("change", pseudoCanvas);

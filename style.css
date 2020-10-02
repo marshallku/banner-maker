@@ -125,6 +125,11 @@ input[type=range]::-webkit-slider-thumb {
     cursor: pointer
 }
 
+input[type="color"] {
+    display: block;
+    height: calc(1rem + 20px);
+}
+
 .flex {
     display: flex
 }
@@ -180,7 +185,7 @@ input[type=range]::-webkit-slider-thumb {
 .inputWrap {
     display: flex;
     border: 1px solid #333;
-    border-radius: 15px;
+    border-radius: 5px;
     overflow: hidden;
 }
 
@@ -189,7 +194,7 @@ input[type=range]::-webkit-slider-thumb {
     overflow: visible
 }
 
-.inputWrap>span, .inputWrap>input:not([type="range"]) {
+.inputWrap>span, .inputWrap>input:not([type="range"]):not([type="color"]) {
     display: inline-block;
     padding: 10px
 }
