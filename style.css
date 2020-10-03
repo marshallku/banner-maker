@@ -46,12 +46,15 @@ a,body,canvas,div,html,input,li,p,textarea,ul,video{margin:0;padding:0;border:0;
 body{line-height:1;-webkit-text-size-adjust:none;overflow-x:hidden;word-break:break-all}
 li,ol,ul{list-style:none}
 br{color:transparent}
-a, input {
+a, input, button {
     text-decoration: none;
     color: #f1f1f1
 }
 a:hover {
     color: #aaa
+}
+button, label {
+    cursor: pointer;
 }
 
 body {
@@ -274,7 +277,9 @@ input[type="color"] {
 }
 
 #download {
-    margin-top: 30px
+    background: 0;
+    border: 0;
+    margin-top: 30px;
 }
 
 .dropdown_btn {
