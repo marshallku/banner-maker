@@ -48,7 +48,7 @@ li,ol,ul{list-style:none}
 br{color:transparent}
 a, input, button {
     text-decoration: none;
-    color: #f1f1f1
+    color: #bbb
 }
 a:hover {
     color: #aaa
@@ -59,7 +59,7 @@ button, label {
 
 body {
     background: #121212;
-    color: #f1f1f1;
+    color: #bbb;
     padding: 20px 10px
 }
 
@@ -99,9 +99,11 @@ body, input {
     font-family: "ghanachoco"
 }
 
-input {
+input,
+textarea {
     outline: 0;
     width: 250px;
+    color: #bbb;
 }
 
 input[type=range] {
@@ -247,7 +249,9 @@ input[type="color"] {
     max-width: 300px;
     padding: 10px 20px;
     line-height: 1.5;
-    text-align: center
+    text-align: center;
+    overflow: hidden;
+    resize: none;
 }
 
 #text::placeholder {
@@ -258,7 +262,7 @@ input[type="color"] {
     opacity: 0
 }
 
-#textWrap .line {
+#textWrap > .line {
     content: "";
     position: absolute;
     bottom: 0;
@@ -269,6 +273,11 @@ input[type="color"] {
     transform: scale(0);
     opacity: 0;
     transition: .5s
+}
+
+#textWrap > .line.top {
+    bottom: auto;
+    top: 0;
 }
 
 #text:focus ~ .line, #text:hover ~ .line {

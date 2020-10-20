@@ -43,13 +43,35 @@ function render() {
     ctx.textBaseline = "middle";
     ctx.maxWidth = canvas.width;
     ctx.fillStyle = TEXTCOLOR.value;
-    ctx.fillText(
-        input === 0 ? "Sample Text" : TEXT.value,
-        canvas.width / 2,
-        canvas.height / 2
-    );
+    if (!input) {
+        ctx.fillText("Sample Text", canvas.width / 2, canvas.height / 2);
+    } else {
+        const lines = TEXT.value.split("\n");
+        const lineHeight = SIZE.value * 1.5;
+        const firstLineCord =
+            canvas.height / 2 - (0.5 * lines.length - 0.5) * lineHeight;
+
+        lines.forEach((line, index) => {
+            ctx.fillText(
+                line,
+                canvas.width / 2,
+                firstLineCord + index * lineHeight
+            );
+        });
+    }
 
     downloadBtn();
+}
+
+function handleChange() {
+    input = !!TEXT.value;
+
+    const { scrollY } = window;
+    TEXT.style.height = "auto";
+    TEXT.style.height = `calc(${TEXT.scrollHeight}px + 1rem)`;
+    window.scrollTo(0, scrollY);
+
+    render();
 }
 
 function downloadBtn() {
@@ -127,18 +149,9 @@ WIDTH.addEventListener("keyup", resize);
 HEIGHT.addEventListener("change", resize);
 HEIGHT.addEventListener("keydown", resize);
 HEIGHT.addEventListener("keyup", resize);
-TEXT.addEventListener("change", () => {
-    render();
-    input = 1;
-});
-TEXT.addEventListener("keydown", () => {
-    render();
-    input = 1;
-});
-TEXT.addEventListener("keyup", () => {
-    render();
-    input = 1;
-});
+TEXT.addEventListener("change", handleChange);
+TEXT.addEventListener("keydown", handleChange);
+TEXT.addEventListener("keyup", handleChange);
 BG.addEventListener("change", render);
 BG.addEventListener("keydown", render);
 BG.addEventListener("keyup", render);
