@@ -1,4 +1,4 @@
-# Make THumbnail, Banner with HTML5 Canvas
+# Make Thumbnail, Banner with HTML5 Canvas
 
 <img src="./preview.png" alt="preview">
 
