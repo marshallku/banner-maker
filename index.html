@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" class="preload">
+<html lang="en" class="preload">
     <head>
         <title>Canvas Thumbnail Maker</title>
         <meta charset="utf-8" />
@@ -52,11 +52,12 @@
     <body>
         <div id="resize" class="flex center">
             <div class="inputWrap">
-                <span>Width</span><input type="number" id="width" value="700" />
+                <span>Width</span>
+                <input type="number" id="width" value="700" />
             </div>
             <div class="inputWrap">
-                <span>Height</span
-                ><input type="number" id="height" value="700" />
+                <span>Height</span>
+                <input type="number" id="height" value="700" />
             </div>
         </div>
         <div class="flex center">
@@ -76,11 +77,8 @@
             <div class="inputWrap margin alt">
                 <span>Font</span>
                 <div id="font" class="dropdown_btn" data-dropdown="fontList">
-                    Sans-Serif<svg
-                        class="icon-angle-down"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 288 448"
-                    >
+                    Sans-Serif
+                    <svg class="icon-angle-down" viewBox="0 0 288 448">
                         <path
                             d="M268.75 184c0 2-1 4.25-2.5 5.75l-116.5 116.5c-1.5 1.5-3.75 2.5-5.75 2.5s-4.25-1-5.75-2.5l-116.5-116.5c-1.5-1.5-2.5-3.75-2.5-5.75s1-4.25 2.5-5.75l12.5-12.5c1.5-1.5 3.5-2.5 5.75-2.5 2 0 4.25 1 5.75 2.5l98.25 98.25 98.25-98.25c1.5-1.5 3.75-2.5 5.75-2.5s4.25 1 5.75 2.5l12.5 12.5c1.5 1.5 2.5 3.75 2.5 5.75z"
                         />
@@ -109,12 +107,12 @@
                 </ul>
             </div>
             <div class="inputWrap margin">
-                <span>Font Size</span
-                ><input type="number" id="fontSize" value="64" />
+                <span>Font Size</span>
+                <input type="number" id="fontSize" value="64" />
             </div>
             <div class="inputWrap margin">
-                <span>Font Color</span
-                ><input
+                <span>Font Color</span>
+                <input
                     type="color"
                     id="textColor"
                     autocomplete="off"
@@ -122,8 +120,8 @@
                 />
             </div>
             <div class="inputWrap margin">
-                <span>Background Color</span
-                ><input
+                <span>Background Color</span>
+                <input
                     type="color"
                     id="bgColor"
                     autocomplete="off"
@@ -131,12 +129,8 @@
                 />
             </div>
             <input type="file" id="bgImage" class="hidden" />
-            <label for="bgImage" class="button margin center"
-                ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 416 448"
-                    class="icon-upload"
-                >
+            <label for="bgImage" class="button margin center">
+                <svg viewBox="0 0 416 448" class="icon-upload">
                     <path
                         d="M320 368c0-8.75-7.25-16-16-16s-16 7.25-16 16 7.25 16 16 16 16-7.25 16-16zM384 368c0-8.75-7.25-16-16-16s-16 7.25-16 16 7.25 16 16 16 16-7.25 16-16zM416 312v80c0 13.25-10.75 24-24 24h-368c-13.25 0-24-10.75-24-24v-80c0-13.25 10.75-24 24-24h106.75c6.75 18.5 24.5 32 45.25 32h64c20.75 0 38.5-13.5 45.25-32h106.75c13.25 0 24 10.75 24 24zM334.75 150c-2.5 6-8.25 10-14.75 10h-64v112c0 8.75-7.25 16-16 16h-64c-8.75 0-16-7.25-16-16v-112h-64c-6.5 0-12.25-4-14.75-10-2.5-5.75-1.25-12.75 3.5-17.25l112-112c3-3.25 7.25-4.75 11.25-4.75s8.25 1.5 11.25 4.75l112 112c4.75 4.5 6 11.5 3.5 17.25z"
                     />
@@ -147,17 +141,8 @@
                 <div>Background Image Transparency</div>
                 <input type="range" id="transparency" value="0" />
             </div>
-            <a
-                href="#"
-                id="download"
-                download="thumbnail"
-                class="button center"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 416 448"
-                    class="icon-download"
-                >
+            <a id="download" download="thumbnail" class="button center">
+                <svg viewBox="0 0 416 448" class="icon-download">
                     <path
                         d="M320 336c0-8.75-7.25-16-16-16s-16 7.25-16 16 7.25 16 16 16 16-7.25 16-16zM384 336c0-8.75-7.25-16-16-16s-16 7.25-16 16 7.25 16 16 16 16-7.25 16-16zM416 280v80c0 13.25-10.75 24-24 24h-368c-13.25 0-24-10.75-24-24v-80c0-13.25 10.75-24 24-24h116.25l33.75 34c9.25 9 21.25 14 34 14s24.75-5 34-14l34-34h116c13.25 0 24 10.75 24 24zM334.75 137.75c2.5 6 1.25 13-3.5 17.5l-112 112c-3 3.25-7.25 4.75-11.25 4.75s-8.25-1.5-11.25-4.75l-112-112c-4.75-4.5-6-11.5-3.5-17.5 2.5-5.75 8.25-9.75 14.75-9.75h64v-112c0-8.75 7.25-16 16-16h64c8.75 0 16 7.25 16 16v112h64c6.5 0 12.25 4 14.75 9.75z"
                     />
