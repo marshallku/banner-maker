@@ -130,7 +130,6 @@ function resize() {
     pseudo.width = +WIDTH.value;
     pseudo.height = +HEIGHT.value;
     pseudoRepaint();
-    pseudoRepaint();
 }
 
 function dropdown(id: string) {

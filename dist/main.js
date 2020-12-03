@@ -96,7 +96,6 @@ function resize() {
     pseudo.width = +WIDTH.value;
     pseudo.height = +HEIGHT.value;
     pseudoRepaint();
-    pseudoRepaint();
 }
 function dropdown(id) {
     const target = document.getElementById(id);
