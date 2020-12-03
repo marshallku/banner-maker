@@ -4,7 +4,7 @@ const pseudoCtx = pseudo.getContext("2d");
 const ctx = canvas.getContext("2d");
 const WIDTH = <HTMLInputElement>document.getElementById("width");
 const HEIGHT = <HTMLInputElement>document.getElementById("height");
-const TEXT = <HTMLInputElement>document.getElementById("text");
+const TEXT = <HTMLTextAreaElement>document.getElementById("text");
 const BG = <HTMLInputElement>document.getElementById("bgColor");
 const TEXTCOLOR = <HTMLInputElement>document.getElementById("textColor");
 const SIZE = <HTMLInputElement>document.getElementById("fontSize");
@@ -76,6 +76,7 @@ function downloadBtn() {
     const btn = <HTMLAnchorElement>document.getElementById("download");
 
     btn.href = canvas.toDataURL();
+    btn.download = `${TEXT.value}`;
 }
 
 function fillImage(ctx: CanvasRenderingContext2D, img: HTMLImageElement) {

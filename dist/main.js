@@ -61,6 +61,7 @@ function handleChange() {
 function downloadBtn() {
     const btn = document.getElementById("download");
     btn.href = canvas.toDataURL();
+    btn.download = `${TEXT.value}`;
 }
 function fillImage(ctx, img) {
     const ratio = Math.max(pseudo.width / img.width, pseudo.height / img.height);
