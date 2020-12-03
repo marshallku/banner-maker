@@ -103,7 +103,6 @@ function pseudoCanvas(event: Event) {
     const reader = new FileReader();
 
     reader.readAsDataURL((<HTMLInputElement>event.target).files[0]);
-
     reader.addEventListener("load", (event) => {
         const { result } = event.target;
         img.src =
@@ -135,10 +134,11 @@ function resize() {
 }
 
 function dropdown(id: string) {
-    const f = document.getElementById(id);
-    f.classList.toggle("dropdown_reveal");
+    const target = document.getElementById(id);
+
+    target.classList.toggle("dropdown_reveal");
     document.querySelectorAll(".dropdown_reveal").forEach((element) => {
-        if (element !== f) {
+        if (element !== target) {
             element.classList.remove("dropdown_reveal");
         }
     });
@@ -163,8 +163,9 @@ SIZE.addEventListener("change", render);
 TRANS.addEventListener("change", pseudoRepaint);
 TRANS.addEventListener("input", pseudoRepaint);
 document.getElementById("bgImage").addEventListener("change", pseudoCanvas);
-document.getElementById("fontList").addEventListener("click", (e) => {
-    const target = (<HTMLElement>e.target).dataset.font;
+
+document.getElementById("fontList").addEventListener("click", (event) => {
+    const target = (<HTMLElement>event.target).dataset.font;
 
     document.getElementById(
         "font"
@@ -172,12 +173,14 @@ document.getElementById("fontList").addEventListener("click", (e) => {
     font = target;
     render();
 });
+
 document.querySelectorAll(".dropdown_btn").forEach((element: HTMLElement) => {
     element.addEventListener("click", () => {
         dropdown(element.dataset.dropdown);
         element.classList.toggle("activated");
     });
 });
+
 document
     .querySelectorAll(".material-ripple")
     .forEach((element: HTMLElement) => {
@@ -199,20 +202,22 @@ document
             }, 500);
         });
     });
-window.addEventListener("click", (e) => {
-    const target = <HTMLElement>e.target;
+
+window.addEventListener("click", (event) => {
+    const target = <HTMLElement>event.target;
 
     if (
         !target.matches(".dropdown_btn, .dropdown_reveal, .dropdown_reveal *")
     ) {
-        document.querySelectorAll(".dropdown_btn").forEach((a) => {
-            a.classList.remove("activated");
+        document.querySelectorAll(".dropdown_btn").forEach((element) => {
+            element.classList.remove("activated");
         });
-        document.querySelectorAll(".dropdown_content").forEach((a) => {
-            a.classList.remove("dropdown_reveal");
+        document.querySelectorAll(".dropdown_content").forEach((element) => {
+            element.classList.remove("dropdown_reveal");
         });
     }
 });
+
 window.addEventListener("DOMContentLoaded", () => {
     document.documentElement.classList.remove("preload");
 });

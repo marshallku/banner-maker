@@ -99,10 +99,10 @@ function resize() {
     pseudoRepaint();
 }
 function dropdown(id) {
-    const f = document.getElementById(id);
-    f.classList.toggle("dropdown_reveal");
+    const target = document.getElementById(id);
+    target.classList.toggle("dropdown_reveal");
     document.querySelectorAll(".dropdown_reveal").forEach((element) => {
-        if (element !== f) {
+        if (element !== target) {
             element.classList.remove("dropdown_reveal");
         }
     });
@@ -125,8 +125,8 @@ SIZE.addEventListener("change", render);
 TRANS.addEventListener("change", pseudoRepaint);
 TRANS.addEventListener("input", pseudoRepaint);
 document.getElementById("bgImage").addEventListener("change", pseudoCanvas);
-document.getElementById("fontList").addEventListener("click", (e) => {
-    const target = e.target.dataset.font;
+document.getElementById("fontList").addEventListener("click", (event) => {
+    const target = event.target.dataset.font;
     document.getElementById("font").innerHTML = `${target}<i class="icon-angle-down"></i>`;
     font = target;
     render();
@@ -153,14 +153,14 @@ document
         }, 500);
     });
 });
-window.addEventListener("click", (e) => {
-    const target = e.target;
+window.addEventListener("click", (event) => {
+    const target = event.target;
     if (!target.matches(".dropdown_btn, .dropdown_reveal, .dropdown_reveal *")) {
-        document.querySelectorAll(".dropdown_btn").forEach((a) => {
-            a.classList.remove("activated");
+        document.querySelectorAll(".dropdown_btn").forEach((element) => {
+            element.classList.remove("activated");
         });
-        document.querySelectorAll(".dropdown_content").forEach((a) => {
-            a.classList.remove("dropdown_reveal");
+        document.querySelectorAll(".dropdown_content").forEach((element) => {
+            element.classList.remove("dropdown_reveal");
         });
     }
 });
