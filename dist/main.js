@@ -10,7 +10,7 @@ const TEXTCOLOR = document.getElementById("textColor");
 const SIZE = document.getElementById("fontSize");
 const TRANS = document.getElementById("transparency");
 const img = new Image();
-let input = 0;
+let input = false;
 let font = "sans-serif";
 function init() {
     const rancolor = `#${(0x1000000 + Math.random() * 0xffffff)
@@ -51,7 +51,7 @@ function render() {
     downloadBtn();
 }
 function handleChange() {
-    input = !!TEXT.value ? 1 : 0;
+    input = !!TEXT.value;
     const { scrollY } = window;
     TEXT.style.height = "auto";
     TEXT.style.height = `calc(${TEXT.scrollHeight}px + 1rem)`;

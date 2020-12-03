@@ -11,7 +11,7 @@ const SIZE = <HTMLInputElement>document.getElementById("fontSize");
 const TRANS = <HTMLInputElement>document.getElementById("transparency");
 const img = new Image();
 
-let input = 0;
+let input = false;
 let font = "sans-serif";
 
 function init() {
@@ -62,7 +62,7 @@ function render() {
 }
 
 function handleChange() {
-    input = !!TEXT.value ? 1 : 0;
+    input = !!TEXT.value;
 
     const { scrollY } = window;
     TEXT.style.height = "auto";
