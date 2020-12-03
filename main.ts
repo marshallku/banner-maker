@@ -1,14 +1,14 @@
-const canvas = document.getElementById("preview");
+const canvas = <HTMLCanvasElement>document.getElementById("preview");
 const pseudo = document.createElement("canvas");
 const pseudoCtx = pseudo.getContext("2d");
 const ctx = canvas.getContext("2d");
-const WIDTH = document.getElementById("width");
-const HEIGHT = document.getElementById("height");
-const TEXT = document.getElementById("text");
-const BG = document.getElementById("bgColor");
-const TEXTCOLOR = document.getElementById("textColor");
-const SIZE = document.getElementById("fontSize");
-const TRANS = document.getElementById("transparency");
+const WIDTH = <HTMLInputElement>document.getElementById("width");
+const HEIGHT = <HTMLInputElement>document.getElementById("height");
+const TEXT = <HTMLInputElement>document.getElementById("text");
+const BG = <HTMLInputElement>document.getElementById("bgColor");
+const TEXTCOLOR = <HTMLInputElement>document.getElementById("textColor");
+const SIZE = <HTMLInputElement>document.getElementById("fontSize");
+const TRANS = <HTMLInputElement>document.getElementById("transparency");
 const img = new Image();
 
 let input = 0;
@@ -19,15 +19,14 @@ function init() {
         .toString(16)
         .substr(1, 6)}`;
 
-    pseudo.width = WIDTH.value;
-    pseudo.height = HEIGHT.value;
+    pseudo.width = +WIDTH.value;
+    pseudo.height = +HEIGHT.value;
     BG.value = rancolor;
     ctx.fillStyle = rancolor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.textAlign = "center";
     ctx.font = `${SIZE.value}px ${font}`;
     ctx.textBaseline = "middle";
-    ctx.maxWidth = canvas.width;
     ctx.fillStyle = "white";
     ctx.fillText("Sample Text", canvas.width / 2, canvas.height / 2);
     downloadBtn();
@@ -41,13 +40,12 @@ function render() {
     ctx.textAlign = "center";
     ctx.font = `${SIZE.value}px ${font}`;
     ctx.textBaseline = "middle";
-    ctx.maxWidth = canvas.width;
     ctx.fillStyle = TEXTCOLOR.value;
     if (!input) {
         ctx.fillText("Sample Text", canvas.width / 2, canvas.height / 2);
     } else {
         const lines = TEXT.value.split("\n");
-        const lineHeight = SIZE.value * 1.5;
+        const lineHeight = +SIZE.value * 1.5;
         const firstLineCord =
             canvas.height / 2 - (0.5 * lines.length - 0.5) * lineHeight;
 
@@ -64,7 +62,7 @@ function render() {
 }
 
 function handleChange() {
-    input = !!TEXT.value;
+    input = !!TEXT.value ? 1 : 0;
 
     const { scrollY } = window;
     TEXT.style.height = "auto";
@@ -75,12 +73,12 @@ function handleChange() {
 }
 
 function downloadBtn() {
-    const btn = document.getElementById("download");
+    const btn = <HTMLAnchorElement>document.getElementById("download");
 
     btn.href = canvas.toDataURL();
 }
 
-function fillImage(ctx, img) {
+function fillImage(ctx: CanvasRenderingContext2D, img: HTMLImageElement) {
     const ratio = Math.max(
         pseudo.width / img.width,
         pseudo.height / img.height
@@ -100,17 +98,21 @@ function fillImage(ctx, img) {
     );
 }
 
-function pseudoCanvas(e) {
+function pseudoCanvas(event: Event) {
     const reader = new FileReader();
 
-    reader.readAsDataURL(e.target.files[0]);
+    reader.readAsDataURL((<HTMLInputElement>event.target).files[0]);
 
-    reader.addEventListener("load", (e) => {
-        img.src = e.target.result;
+    reader.addEventListener("load", (event) => {
+        const { result } = event.target;
+        img.src =
+            typeof result === "string"
+                ? result
+                : String.fromCharCode.apply(null, new Uint16Array(result));
         img.onload = () => {
-            TRANS.parentNode.classList.remove("hidden");
+            (<HTMLDivElement>TRANS.parentNode).classList.remove("hidden");
             fillImage(pseudoCtx, img);
-            pseudoCtx.globalAlpha = `${(100 - TRANS.value) / 100}`;
+            pseudoCtx.globalAlpha = (100 - +TRANS.value) / 100;
             render();
         };
     });
@@ -118,21 +120,21 @@ function pseudoCanvas(e) {
 
 function pseudoRepaint() {
     fillImage(pseudoCtx, img);
-    pseudoCtx.globalAlpha = `${(100 - TRANS.value) / 100}`;
+    pseudoCtx.globalAlpha = (100 - +TRANS.value) / 100;
     render();
 }
 
 function resize() {
-    canvas.width = WIDTH.value;
-    canvas.height = HEIGHT.value;
-    pseudo.width = WIDTH.value;
-    pseudo.height = HEIGHT.value;
+    canvas.width = +WIDTH.value;
+    canvas.height = +HEIGHT.value;
+    pseudo.width = +WIDTH.value;
+    pseudo.height = +HEIGHT.value;
     pseudoRepaint();
     pseudoRepaint();
 }
 
-function dropdown(b) {
-    const f = document.getElementById(b);
+function dropdown(id: string) {
+    const f = document.getElementById(id);
     f.classList.toggle("dropdown_reveal");
     document.querySelectorAll(".dropdown_reveal").forEach((element) => {
         if (element !== f) {
@@ -161,7 +163,7 @@ TRANS.addEventListener("change", pseudoRepaint);
 TRANS.addEventListener("input", pseudoRepaint);
 document.getElementById("bgImage").addEventListener("change", pseudoCanvas);
 document.getElementById("fontList").addEventListener("click", (e) => {
-    const target = e.target.dataset.font;
+    const target = (<HTMLElement>e.target).dataset.font;
 
     document.getElementById(
         "font"
@@ -169,30 +171,35 @@ document.getElementById("fontList").addEventListener("click", (e) => {
     font = target;
     render();
 });
-document.querySelectorAll(".dropdown_btn").forEach((element) => {
+document.querySelectorAll(".dropdown_btn").forEach((element: HTMLElement) => {
     element.addEventListener("click", () => {
         dropdown(element.dataset.dropdown);
         element.classList.toggle("activated");
     });
 });
-document.querySelectorAll(".material-ripple").forEach((element) => {
-    element.addEventListener("click", (e) => {
-        const ripple = document.createElement("div");
-        const rect = element.getBoundingClientRect();
+document
+    .querySelectorAll(".material-ripple")
+    .forEach((element: HTMLElement) => {
+        element.addEventListener("click", (e) => {
+            const ripple = document.createElement("div");
+            const rect = element.getBoundingClientRect();
 
-        ripple.className = "animate";
-        ripple.style.left = `${e.x - rect.left}px`;
-        ripple.style.top = `${e.y - rect.top}px`;
-        ripple.style.setProperty("--material-scale", element.offsetWidth);
-        element.append(ripple);
+            ripple.className = "animate";
+            ripple.style.left = `${e.x - rect.left}px`;
+            ripple.style.top = `${e.y - rect.top}px`;
+            ripple.style.setProperty(
+                "--material-scale",
+                `${element.offsetWidth}`
+            );
+            element.append(ripple);
 
-        setTimeout(() => {
-            ripple.parentNode.removeChild(ripple);
-        }, 500);
+            setTimeout(() => {
+                ripple.parentNode.removeChild(ripple);
+            }, 500);
+        });
     });
-});
 window.addEventListener("click", (e) => {
-    const target = e.target;
+    const target = <HTMLElement>e.target;
 
     if (
         !target.matches(".dropdown_btn, .dropdown_reveal, .dropdown_reveal *")
