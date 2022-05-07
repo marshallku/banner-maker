@@ -1,3 +1,5 @@
+import "./css/style.css";
+
 const canvas = <HTMLCanvasElement>document.getElementById("preview");
 const pseudo = document.createElement("canvas");
 const pseudoCtx = pseudo.getContext("2d");
