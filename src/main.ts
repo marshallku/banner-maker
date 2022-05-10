@@ -2,8 +2,8 @@ import "./css/style.css";
 
 const canvas = <HTMLCanvasElement>document.getElementById("preview");
 const pseudo = document.createElement("canvas");
-const pseudoCtx = pseudo.getContext("2d");
-const ctx = canvas.getContext("2d");
+const pseudoCtx = <CanvasRenderingContext2D>pseudo.getContext("2d");
+const ctx = <CanvasRenderingContext2D>canvas.getContext("2d");
 const WIDTH = <HTMLInputElement>document.getElementById("width");
 const HEIGHT = <HTMLInputElement>document.getElementById("height");
 const TEXT = <HTMLTextAreaElement>document.getElementById("text");
@@ -103,14 +103,33 @@ function fillImage(ctx: CanvasRenderingContext2D, img: HTMLImageElement) {
 
 function pseudoCanvas(event: Event) {
     const reader = new FileReader();
+    const { target } = event;
 
-    reader.readAsDataURL((<HTMLInputElement>event.target).files[0]);
+    if (!(target instanceof HTMLInputElement)) {
+        return;
+    }
+
+    const { files } = target;
+
+    if (!files) {
+        return;
+    }
+
+    reader.readAsDataURL(files[0]);
     reader.addEventListener("load", (event) => {
-        const { result } = event.target;
-        img.src =
-            typeof result === "string"
-                ? result
-                : String.fromCharCode.apply(null, new Uint16Array(result));
+        const { target } = event;
+
+        if (!target) {
+            return;
+        }
+
+        const { result } = target;
+
+        if (!result || typeof result !== "string") {
+            return;
+        }
+
+        img.src = result;
         img.onload = () => {
             (<HTMLDivElement>TRANS.parentNode).classList.remove("hidden");
             fillImage(pseudoCtx, img);
@@ -134,8 +153,12 @@ function resize() {
     pseudoRepaint();
 }
 
-function dropdown(id: string) {
-    const target = document.getElementById(id);
+function dropdown(id?: string) {
+    if (!id) {
+        return;
+    }
+
+    const target = <HTMLElement>document.getElementById(id);
 
     target.classList.toggle("dropdown_reveal");
     document.querySelectorAll(".dropdown_reveal").forEach((element) => {
@@ -163,19 +186,23 @@ TEXTCOLOR.addEventListener("change", render);
 SIZE.addEventListener("change", render);
 TRANS.addEventListener("change", pseudoRepaint);
 TRANS.addEventListener("input", pseudoRepaint);
-document.getElementById("bgImage").addEventListener("change", pseudoCanvas);
+document.getElementById("bgImage")?.addEventListener("change", pseudoCanvas);
 
-document.getElementById("fontList").addEventListener("click", (event) => {
+document.getElementById("fontList")?.addEventListener("click", (event) => {
     const target = (<HTMLElement>event.target).dataset.font;
+
+    if (!target) {
+        return;
+    }
 
     document.getElementById(
         "font"
-    ).innerHTML = `${target}<i class="icon-angle-down"></i>`;
+    )!.innerHTML = `${target}<i class="icon-angle-down"></i>`;
     font = target;
     render();
 });
 
-document.querySelectorAll(".dropdown_btn").forEach((element: HTMLElement) => {
+document.querySelectorAll<HTMLElement>(".dropdown_btn").forEach((element) => {
     element.addEventListener("click", () => {
         dropdown(element.dataset.dropdown);
         element.classList.toggle("activated");
@@ -183,8 +210,8 @@ document.querySelectorAll(".dropdown_btn").forEach((element: HTMLElement) => {
 });
 
 document
-    .querySelectorAll(".material-ripple")
-    .forEach((element: HTMLElement) => {
+    .querySelectorAll<HTMLElement>(".material-ripple")
+    .forEach((element) => {
         element.addEventListener("click", (e) => {
             const ripple = document.createElement("div");
             const rect = element.getBoundingClientRect();
@@ -199,7 +226,7 @@ document
             element.append(ripple);
 
             setTimeout(() => {
-                ripple.parentNode.removeChild(ripple);
+                ripple.parentNode?.removeChild(ripple);
             }, 500);
         });
     });
