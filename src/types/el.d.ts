@@ -23,8 +23,13 @@ type CustomEvents<T extends CustomElementKeys> = {
           ];
 };
 
+interface CustomDataset {
+    [key: string]: string;
+}
+
 interface CustomEventObject<T extends CustomElementKeys> {
     events: Partial<CustomEvents<T>>;
+    dataset: CustomDataset;
 }
 
 type CustomElementAttributes<T extends CustomElementKeys> = Partial<

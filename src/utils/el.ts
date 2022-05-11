@@ -52,6 +52,16 @@ export default function el<
             return;
         }
 
+        if (key === "dataset") {
+            Object.entries(value as CustomDataset).forEach(
+                ([dataAttribute, dataValue]) => {
+                    node.dataset[dataAttribute] = dataValue;
+                }
+            );
+
+            return;
+        }
+
         if (key in node) {
             try {
                 node[key as "innerText"] = value as string;
