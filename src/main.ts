@@ -1,6 +1,7 @@
 import App from "./App";
 import "./css/style.css";
 
+// TODO: Move everything below to dedicated components
 function main() {
     const canvas = <HTMLCanvasElement>document.getElementById("preview");
     const pseudo = document.createElement("canvas");
