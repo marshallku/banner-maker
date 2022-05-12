@@ -101,7 +101,6 @@ export default class CanvasStore extends EventTarget {
 
     setBackgroundOpacity(backgroundOpacity: number) {
         this.backgroundOpacity = backgroundOpacity;
-        console.log(backgroundOpacity);
         this.#update();
     }
 }

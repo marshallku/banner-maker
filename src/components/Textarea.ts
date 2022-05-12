@@ -6,13 +6,9 @@ export default function Textarea() {
     const handleChange = (event: Event) => {
         const { target } = event;
 
-        console.log(target);
-
         if (!(target instanceof HTMLTextAreaElement)) {
             return;
         }
-
-        console.log(target.value);
 
         setText(target.value);
     };
