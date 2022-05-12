@@ -2,6 +2,7 @@ import { canvasStore } from "../store";
 import el from "../utils/el";
 
 export default function Preview() {
+    const { setCanvas } = canvasStore;
     const canvas = el("canvas", {
         id: "preview",
         width: canvasStore.width,
@@ -72,6 +73,7 @@ export default function Preview() {
 
     canvasStore.addEventListener("update", render);
     render();
+    setCanvas(canvas);
 
     return el("div", { className: "flex center" }, canvas);
 }

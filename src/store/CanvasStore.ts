@@ -1,6 +1,7 @@
 import getRandomColor from "../utils/getRandomColor";
 
 export default class CanvasStore extends EventTarget {
+    canvas?: HTMLCanvasElement;
     width: number;
     height: number;
     text: string;
@@ -23,6 +24,7 @@ export default class CanvasStore extends EventTarget {
         this.fontColor = "#ffffff";
         this.backgroundColor = getRandomColor();
         this.backgroundOpacity = 0.5;
+        this.setCanvas = this.setCanvas.bind(this);
         this.setWidth = this.setWidth.bind(this);
         this.setHeight = this.setHeight.bind(this);
         this.setText = this.setText.bind(this);
@@ -36,6 +38,10 @@ export default class CanvasStore extends EventTarget {
 
     #update() {
         this.dispatchEvent(new CustomEvent("update"));
+    }
+
+    setCanvas(canvas: HTMLCanvasElement) {
+        this.canvas = canvas;
     }
 
     setWidth(width: number) {

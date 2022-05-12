@@ -9,13 +9,12 @@ export default function DownloadButton() {
             className: "button center",
             events: {
                 click() {
-                    const canvas = document.getElementById("preview");
+                    const { canvas, text } = canvasStore;
 
-                    if (!(canvas instanceof HTMLCanvasElement)) {
+                    if (!canvas) {
                         return;
                     }
 
-                    const { text } = canvasStore;
                     const anchor = el("a", {
                         download: text,
                         href: canvas.toDataURL(),
