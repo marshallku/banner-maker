@@ -37,10 +37,6 @@ body {
     padding: 20px 10px;
 }
 
-.preload * {
-    transition: 0s !important;
-}
-
 #app {
     display: flex;
     flex-direction: column;

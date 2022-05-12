@@ -69,10 +69,6 @@ function main() {
                 });
         }
     });
-
-    window.addEventListener("DOMContentLoaded", () => {
-        document.documentElement.classList.remove("preload");
-    });
 }
 
 document.getElementById("app")!.append(App());
