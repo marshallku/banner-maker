@@ -1,14 +1,10 @@
 export default function bindMethods(classToBind: any) {
-    Object.getOwnPropertyNames(Object.getPrototypeOf(classToBind)).map(
-        (key) => {
-            if (
-                !(classToBind[key] instanceof Function) ||
-                key === "constructor"
-            ) {
-                return;
-            }
-
+    Object.getOwnPropertyNames(Object.getPrototypeOf(classToBind))
+        .filter(
+            (key) =>
+                key !== "constructor" && classToBind[key] instanceof Function
+        )
+        .forEach((key) => {
             classToBind[key] = classToBind[key].bind(classToBind);
-        }
-    );
+        });
 }
