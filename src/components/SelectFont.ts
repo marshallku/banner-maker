@@ -18,6 +18,9 @@ export default function SelectFont() {
             "li",
             {
                 className: "material-ripple",
+                style: {
+                    fontFamily: text,
+                },
                 events: {
                     click() {
                         setFont(text);

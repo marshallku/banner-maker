@@ -54,34 +54,6 @@ button {
     font-family: DungGeunMo;
 }
 
-[data-font="sans-serif"] {
-    font-family: sans-serif;
-}
-
-[data-font="Noto Sans KR"] {
-    font-family: "Noto Sans KR";
-}
-
-[data-font="Nanum Gothic"] {
-    font-family: "Nanum Gothic";
-}
-
-[data-font="DungGeunMo"] {
-    font-family: DungGeunMo;
-}
-
-[data-font="BMJUA"] {
-    font-family: BMJUA;
-}
-
-[data-font="Black Han Sans"] {
-    font-family: "Black Han Sans";
-}
-
-[data-font="ghanachoco"] {
-    font-family: "ghanachoco";
-}
-
 input,
 textarea {
     outline: 0;
