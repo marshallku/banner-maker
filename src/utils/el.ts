@@ -4,7 +4,7 @@ export default function el<
 >(
     nodeName: T,
     attributes: CustomElementAttributes<T> = {},
-    ...children: Array<string | Element | undefined | null>
+    ...children: Array<string | DocumentFragment | Element | undefined | null>
 ): U {
     const node =
         nodeName === "fragment"
@@ -16,7 +16,10 @@ export default function el<
             return;
         }
 
-        if (childNode instanceof Element) {
+        if (
+            childNode instanceof Element ||
+            childNode instanceof DocumentFragment
+        ) {
             node.appendChild(childNode);
             return;
         }
