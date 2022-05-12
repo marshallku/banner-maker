@@ -1,102 +1,78 @@
-@font-face {
-    font-family: DungGeunMo;
-    src: local(DungGeunMo), url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff) format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: BMJUA;
-    src: local(BMJUA), url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff) format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: ghanachoco;
-    src: local(ghanachoco), url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff) format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
 [class^="icon-"],
 [class*=" icon-"] {
     display: inline-block;
     width: 1rem;
     height: 1rem;
-    fill: #f1f1f1
+    fill: #f1f1f1;
 }
 
 @keyframes materialRipple {
     0% {
-        transform: translate(-50%, -50%) scale(1)
+        transform: translate(-50%, -50%) scale(1);
     }
 
     100% {
         transform: translate(-50%, -50%) scale(var(--material-scale));
-        opacity: 0
+        opacity: 0;
     }
 }
 
-*,::before,::after{box-sizing: border-box;-webkit-tap-highlight-color:transparent}
-a,body,canvas,div,html,input,li,p,textarea,ul,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline;background:0}
-body{line-height:1;-webkit-text-size-adjust:none;overflow-x:hidden;word-break:break-all}
-li,ol,ul{list-style:none}
-br{color:transparent}
-a, input, button {
+a,
+input,
+button {
     text-decoration: none;
-    color: #bbb
+    color: #bbb;
 }
 a:hover {
-    color: #aaa
+    color: #aaa;
 }
-button, label {
+button,
+label {
     cursor: pointer;
 }
 
 body {
     background: #121212;
     color: #bbb;
-    padding: 20px 10px
+    padding: 20px 10px;
 }
 
 .preload * {
-    transition:0s!important
+    transition: 0s !important;
 }
 
-body, input, button {
-    font-family: DungGeunMo
+body,
+input,
+button {
+    font-family: DungGeunMo;
 }
 
 [data-font="sans-serif"] {
-    font-family: sans-serif
+    font-family: sans-serif;
 }
 
 [data-font="Noto Sans KR"] {
-    font-family: "Noto Sans KR"
+    font-family: "Noto Sans KR";
 }
 
 [data-font="Nanum Gothic"] {
-    font-family: "Nanum Gothic"
+    font-family: "Nanum Gothic";
 }
 
 [data-font="DungGeunMo"] {
-    font-family: DungGeunMo
+    font-family: DungGeunMo;
 }
 
 [data-font="BMJUA"] {
-    font-family: BMJUA
+    font-family: BMJUA;
 }
 
 [data-font="Black Han Sans"] {
-    font-family: "Black Han Sans"
+    font-family: "Black Han Sans";
 }
 
 [data-font="ghanachoco"] {
-    font-family: "ghanachoco"
+    font-family: "ghanachoco";
 }
 
 input,
@@ -106,28 +82,28 @@ textarea {
     color: #bbb;
 }
 
-input[type=range] {
+input[type="range"] {
     display: inline-block;
     -webkit-appearance: none;
     -moz-appearance: revert;
-    max-width: 100%
+    max-width: 100%;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
     height: 5px;
     cursor: pointer;
-    background: #343434
+    background: #343434;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
     width: 15px;
     height: 15px;
     margin-top: -5px;
     background: #ccc;
     border-radius: 50%;
     -webkit-appearance: none;
-    cursor: pointer
+    cursor: pointer;
 }
 
 input[type="color"] {
@@ -136,21 +112,21 @@ input[type="color"] {
 }
 
 .flex {
-    display: flex
+    display: flex;
 }
 
 .hidden {
-    display: none
+    display: none;
 }
 
 .center {
     text-align: center;
     align-items: center;
-    justify-content: center
+    justify-content: center;
 }
 
 .column {
-    flex-direction: column
+    flex-direction: column;
 }
 
 .button {
@@ -160,16 +136,17 @@ input[type="color"] {
     border-radius: 4px;
     padding: 10px 15px;
     box-shadow: #333 0 0 0 2px inset;
-    transition: .3s cubic-bezier(.39, .5, .15, 1)
+    transition: 0.3s cubic-bezier(0.39, 0.5, 0.15, 1);
 }
 
 .button:hover {
     box-shadow: #666 0 0 0 40px inset;
-    color: #f1f1f1
+    color: #f1f1f1;
 }
 
-.icon-upload, .icon-download {
-    margin-right: 5px
+.icon-upload,
+.icon-download {
+    margin-right: 5px;
 }
 
 .material-ripple {
@@ -184,7 +161,7 @@ input[type="color"] {
     border-radius: 50%;
     background: #bdc3c7;
     pointer-events: none;
-    animation: materialRipple 0.5s linear
+    animation: materialRipple 0.5s linear;
 }
 
 .inputWrap {
@@ -196,21 +173,22 @@ input[type="color"] {
 
 .inputWrap.alt {
     position: relative;
-    overflow: visible
+    overflow: visible;
 }
 
-.inputWrap>span, .inputWrap>input:not([type="range"]):not([type="color"]) {
+.inputWrap > span,
+.inputWrap > input:not([type="range"]):not([type="color"]) {
     display: inline-block;
-    padding: 10px
+    padding: 10px;
 }
 
-.inputWrap>span {
+.inputWrap > span {
     flex-shrink: 0;
     box-sizing: content-box;
-    border-right: 1px solid #333
+    border-right: 1px solid #333;
 }
 
-.inputWrap>div {
+.inputWrap > div {
     position: relative;
     display: inline-block;
     width: 250px;
@@ -218,30 +196,30 @@ input[type="color"] {
 }
 
 .margin {
-    margin-bottom: 20px
+    margin-bottom: 20px;
 }
 
-.transWrap>div {
-    margin-bottom: 10px
+.transWrap > div {
+    margin-bottom: 10px;
 }
 
 #resize {
-    flex-wrap: wrap
+    flex-wrap: wrap;
 }
 
 #resize .inputWrap {
-    margin: 0 5px 10px
+    margin: 0 5px 10px;
 }
 
 #preview {
     margin: 30px 0;
     max-width: 100%;
-    max-height: 80vh
+    max-height: 80vh;
 }
 
 #textWrap {
     position: relative;
-    margin-bottom: 30px
+    margin-bottom: 30px;
 }
 
 #text {
@@ -255,11 +233,11 @@ input[type="color"] {
 }
 
 #text::placeholder {
-    transition: .5s
+    transition: 0.5s;
 }
 
 #text:focus::placeholder {
-    opacity: 0
+    opacity: 0;
 }
 
 #textWrap > .line {
@@ -272,7 +250,7 @@ input[type="color"] {
     border-bottom: 1px solid #fff;
     transform: scale(0);
     opacity: 0;
-    transition: .5s
+    transition: 0.5s;
 }
 
 #textWrap > .line.top {
@@ -280,9 +258,10 @@ input[type="color"] {
     top: 0;
 }
 
-#text:focus ~ .line, #text:hover ~ .line {
+#text:focus ~ .line,
+#text:hover ~ .line {
     transform: scaleX(1);
-    opacity: 1
+    opacity: 1;
 }
 
 #download {
@@ -293,17 +272,17 @@ input[type="color"] {
 
 .dropdown_btn {
     cursor: pointer;
-    user-select: none
+    user-select: none;
 }
 
 .dropdown_btn .icon-angle-down {
     position: absolute;
     right: 10px;
-    transition: transform .5s
+    transition: transform 0.5s;
 }
 
 .dropdown_btn.activated .icon-angle-down {
-    transform: rotate(180deg)
+    transform: rotate(180deg);
 }
 
 .dropdown_content {
@@ -311,7 +290,7 @@ input[type="color"] {
     opacity: 0;
     transform: translateY(-10px);
     pointer-events: none;
-    transition: .5s
+    transition: 0.5s;
 }
 
 .dropdown_content.dropdown_reveal {
@@ -326,10 +305,10 @@ input[type="color"] {
     right: 0;
     background: #121212;
     border: 1px solid #333;
-    border-radius: 10px
+    border-radius: 10px;
 }
 
 #fontList li {
     padding: 10px;
-    cursor: pointer
+    cursor: pointer;
 }

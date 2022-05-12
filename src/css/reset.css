@@ -1,0 +1,124 @@
+a,
+article,
+aside,
+audio,
+blockquote,
+body,
+button,
+canvas,
+code,
+div,
+em,
+embed,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+html,
+i,
+iframe,
+img,
+input,
+label,
+li,
+main,
+nav,
+ol,
+output,
+p,
+pre,
+section,
+small,
+span,
+strong,
+table,
+tbody,
+td,
+textarea,
+time,
+ul,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    background: 0;
+    outline: 0;
+    color: inherit;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    -webkit-text-size-adjust: none;
+    overflow-x: hidden;
+    word-break: break-all;
+}
+
+a {
+    text-decoration: none;
+}
+
+li,
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+br {
+    color: transparent;
+}
+
+audio,
+iframe,
+img,
+svg,
+video {
+    max-width: 100%;
+}
+
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+em {
+    font-style: italic;
+}
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    -webkit-tap-highlight-color: transparent;
+}

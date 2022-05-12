@@ -1,4 +1,6 @@
 import App from "./App";
+import "./css/reset.css";
+import "./css/font.css";
 import "./css/style.css";
 
 // TODO: Move everything below to dedicated components
