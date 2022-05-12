@@ -8,7 +8,7 @@ export default function Preview() {
         height: canvasStore.height,
     });
     const ctx = canvas.getContext("2d");
-    const render = async () => {
+    const render = () => {
         const {
             width,
             height,
