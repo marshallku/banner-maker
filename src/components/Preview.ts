@@ -33,8 +33,21 @@ export default function Preview() {
         ctx.fillRect(0, 0, width, height);
 
         if (backgroundImage) {
+            const { width: imageWidth, height: imageHeight } = backgroundImage;
+            const ratio = Math.max(width / imageWidth, height / imageHeight);
+
             ctx.globalAlpha = backgroundOpacity;
-            ctx.drawImage(backgroundImage, 0, 0, width, height);
+            ctx.drawImage(
+                backgroundImage,
+                0,
+                0,
+                imageWidth,
+                imageHeight,
+                (width - imageWidth * ratio) / 2,
+                (height - imageHeight * ratio) / 2,
+                imageWidth * ratio,
+                imageHeight * ratio
+            );
             ctx.globalAlpha = 1;
         }
 
