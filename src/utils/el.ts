@@ -65,6 +65,15 @@ export default function el<
             return;
         }
 
+        if (key === "style") {
+            Object.entries(value as CSSStyleDeclaration).forEach(
+                ([styleAttribute, styleValue]) => {
+                    node.style[styleAttribute as "width"] = styleValue;
+                }
+            );
+            return;
+        }
+
         if (key in node) {
             try {
                 node[key as "innerText"] = value as string;

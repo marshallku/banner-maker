@@ -6,11 +6,6 @@ type CustomElementKeys = keyof CustomElements;
 
 type CreatedElement<T extends CustomElementKeys> = CustomElements[T];
 
-type CustomElementEventListener<T extends CustomElementKeys> = Pick<
-    CreatedElement<T>,
-    "addEventListener"
->;
-
 type CustomElementEventListenerParameter<T extends CustomElementKeys> =
     Parameters<CreatedElement<T>["addEventListener"]>;
 
@@ -29,13 +24,13 @@ interface CustomDataset {
 
 interface CustomEventObject<T extends CustomElementKeys> {
     events: Partial<CustomEvents<T>>;
+    style: Partial<CSSStyleDeclaration>;
     dataset: CustomDataset;
 }
 
-type CustomElementAttributes<T extends CustomElementKeys> = Partial<
-    CreatedElement<T>
-> &
-    Partial<CustomEventObject<T>>;
+type CustomElementAttributes<T extends CustomElementKeys> =
+    | Partial<CreatedElement<T>>
+    | Partial<CustomEventObject<T>>;
 
 interface CustomSVGElements extends SVGElementTagNameMap {}
 
