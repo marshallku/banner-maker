@@ -141,6 +141,7 @@ export function eln<
 
         if (key === "className") {
             node.classList.add(value);
+            return;
         }
 
         node.setAttribute(key, value as string);
