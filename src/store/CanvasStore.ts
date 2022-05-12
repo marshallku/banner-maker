@@ -1,3 +1,4 @@
+import bindMethods from "../utils/bindMethods";
 import getRandomColor from "../utils/getRandomColor";
 
 export default class CanvasStore extends EventTarget {
@@ -24,16 +25,7 @@ export default class CanvasStore extends EventTarget {
         this.fontColor = "#ffffff";
         this.backgroundColor = getRandomColor();
         this.backgroundOpacity = 0.5;
-        this.setCanvas = this.setCanvas.bind(this);
-        this.setWidth = this.setWidth.bind(this);
-        this.setHeight = this.setHeight.bind(this);
-        this.setText = this.setText.bind(this);
-        this.setFont = this.setFont.bind(this);
-        this.setFontSize = this.setFontSize.bind(this);
-        this.setFontColor = this.setFontColor.bind(this);
-        this.setBackgroundColor = this.setBackgroundColor.bind(this);
-        this.setBackgroundImage = this.setBackgroundImage.bind(this);
-        this.setBackgroundOpacity = this.setBackgroundOpacity.bind(this);
+        bindMethods(this);
     }
 
     #update() {
