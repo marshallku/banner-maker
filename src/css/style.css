@@ -67,7 +67,7 @@ body {
     transition:0s!important
 }
 
-body, input {
+body, input, button {
     font-family: DungGeunMo
 }
 
