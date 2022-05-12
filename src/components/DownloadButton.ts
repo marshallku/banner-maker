@@ -2,8 +2,6 @@ import { canvasStore } from "../store";
 import el, { eln } from "../utils/el";
 
 export default function DownloadButton() {
-    const { text } = canvasStore;
-
     return el(
         "button",
         {
@@ -17,6 +15,7 @@ export default function DownloadButton() {
                         return;
                     }
 
+                    const { text } = canvasStore;
                     const anchor = el("a", {
                         download: text,
                         href: canvas.toDataURL(),
