@@ -32,6 +32,10 @@ export default function el<
     }
 
     Object.entries(attributes).forEach(([key, value]) => {
+        if (!value) {
+            return;
+        }
+
         if (key === "events") {
             Object.entries(value as Partial<CustomEvents<T>>).forEach(
                 ([type, args]) => {
@@ -116,6 +120,10 @@ export function eln<
     });
 
     Object.entries(attributes).forEach(([key, value]) => {
+        if (!value) {
+            return;
+        }
+
         if (key === "events") {
             Object.entries(value as Partial<CustomSVGEvents<T>>).forEach(
                 ([type, args]) => {
