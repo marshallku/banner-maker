@@ -41,6 +41,13 @@ body {
     transition: 0s !important;
 }
 
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 body,
 input,
 button {
