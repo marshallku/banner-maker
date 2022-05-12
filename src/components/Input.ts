@@ -11,8 +11,8 @@ export default function Input({
 }: InputProps) {
     return el(
         "div",
-        { className: fcls("inputWrap", className) },
-        el("span", {}, title),
+        { className: fcls("input", className) },
+        el("span", { className: "input__title" }, title),
         el("input", {
             id,
             type,

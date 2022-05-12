@@ -8,10 +8,10 @@ export default function Resize() {
 
     return el(
         "div",
-        { id: "resize", className: "flex center" },
+        { className: "size" },
         Input({
             title: "Width",
-            id: "width",
+            className: "size__input",
             type: "number",
             value: canvasSize,
             onChange: (event) => {
@@ -26,7 +26,7 @@ export default function Resize() {
         }),
         Input({
             title: "Height",
-            id: "height",
+            className: "size__input",
             type: "number",
             value: canvasSize,
             onChange: (event) => {

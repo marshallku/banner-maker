@@ -15,9 +15,9 @@ export default function Textarea() {
 
     return el(
         "div",
-        { id: "textWrap" },
+        { className: "text" },
         el("textarea", {
-            id: "text",
+            className: "text__input",
             placeholder: "Type Here!",
             ariaLabel: "Type Here!",
             rows: 2,
@@ -27,7 +27,7 @@ export default function Textarea() {
                 keyup: handleChange,
             },
         }),
-        el("div", { className: "line top" }),
-        el("div", { className: "line" })
+        el("div", { className: "text__line text__line--top" }),
+        el("div", { className: "text__line" })
     );
 }

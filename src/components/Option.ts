@@ -17,13 +17,12 @@ export default function Option() {
 
     return el(
         "div",
-        { className: "flex center column" },
+        { className: "option" },
         Textarea(),
         SelectFont(),
         Input({
             title: "Font Size",
-            id: "fontSize",
-            className: "margin",
+            className: "option__input",
             type: "number",
             value: `${fontSize}`,
             onChange(event) {
@@ -38,8 +37,7 @@ export default function Option() {
         }),
         Input({
             title: "Font Color",
-            id: "textColor",
-            className: "margin",
+            className: "option__input",
             type: "color",
             value: fontColor,
             onChange(event) {
@@ -54,8 +52,7 @@ export default function Option() {
         }),
         Input({
             title: "Background Color",
-            id: "bgColor",
-            className: "margin",
+            className: "option__input",
             type: "color",
             value: backgroundColor,
             onChange(event) {

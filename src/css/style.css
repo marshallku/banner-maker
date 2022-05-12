@@ -1,11 +1,3 @@
-[class^="icon-"],
-[class*=" icon-"] {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    fill: #f1f1f1;
-}
-
 @keyframes materialRipple {
     0% {
         transform: translate(-50%, -50%) scale(1);
@@ -55,6 +47,13 @@ textarea {
     outline: 0;
     width: 250px;
     color: #bbb;
+}
+
+.icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    fill: #f1f1f1;
 }
 
 input[type="range"] {
@@ -107,7 +106,8 @@ input[type="color"] {
 .button {
     display: inline-flex;
     text-decoration: none;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
     border-radius: 4px;
     padding: 10px 15px;
     box-shadow: #333 0 0 0 2px inset;
@@ -119,11 +119,9 @@ input[type="color"] {
     color: #f1f1f1;
 }
 
-.icon-upload,
-.icon-download {
+.button > .icon {
     margin-right: 5px;
 }
-
 .material-ripple {
     position: relative;
     overflow: hidden;
@@ -139,31 +137,30 @@ input[type="color"] {
     animation: materialRipple 0.5s linear;
 }
 
-.inputWrap {
+.input {
     display: flex;
     border: 1px solid #333;
     border-radius: 5px;
     overflow: hidden;
 }
 
-.inputWrap.alt {
-    position: relative;
-    overflow: visible;
+.input--hidden {
+    display: none;
 }
 
-.inputWrap > span,
-.inputWrap > input:not([type="range"]):not([type="color"]) {
+.input__title,
+.input > input:not([type="range"]):not([type="color"]) {
     display: inline-block;
     padding: 10px;
 }
 
-.inputWrap > span {
+.input__title {
     flex-shrink: 0;
     box-sizing: content-box;
     border-right: 1px solid #333;
 }
 
-.inputWrap > div {
+.input > div {
     position: relative;
     display: inline-block;
     width: 250px;
@@ -174,30 +171,38 @@ input[type="color"] {
     margin-bottom: 20px;
 }
 
-.transWrap > div {
-    margin-bottom: 10px;
-}
-
-#resize {
+.size {
+    display: flex;
     flex-wrap: wrap;
 }
 
-#resize .inputWrap {
+.size__input {
     margin: 0 5px 10px;
 }
 
-#preview {
+.canvas {
     margin: 30px 0;
     max-width: 100%;
     max-height: 80vh;
 }
 
-#textWrap {
-    position: relative;
-    margin-bottom: 30px;
+.option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-#text {
+.option__input {
+    margin-bottom: 1.2rem;
+}
+
+.text {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.text__input {
     width: 90vw;
     max-width: 300px;
     padding: 10px 20px;
@@ -207,15 +212,15 @@ input[type="color"] {
     resize: none;
 }
 
-#text::placeholder {
+.text__input::placeholder {
     transition: 0.5s;
 }
 
-#text:focus::placeholder {
+.text__input:focus::placeholder {
     opacity: 0;
 }
 
-#textWrap > .line {
+.text__line {
     content: "";
     position: absolute;
     bottom: 0;
@@ -228,43 +233,45 @@ input[type="color"] {
     transition: 0.5s;
 }
 
-#textWrap > .line.top {
+.text__line--top {
     bottom: auto;
     top: 0;
 }
 
-#text:focus ~ .line,
-#text:hover ~ .line {
+.text__input:focus ~ .text__line,
+.text__input:hover ~ .text__line {
     transform: scaleX(1);
     opacity: 1;
 }
 
-#download {
+.download-button {
     background: 0;
     border: 0;
     margin-top: 30px;
 }
 
-.dropdown_btn {
+.dropdown {
+    position: relative;
+    margin-bottom: 1.2rem;
+    overflow: visible;
+}
+
+.dropdown__button {
     cursor: pointer;
     user-select: none;
 }
 
-.dropdown_btn > span {
-    pointer-events: none;
-}
-
-.dropdown_btn .icon-angle-down {
+.dropdown__button > .icon {
     position: absolute;
     right: 10px;
     transition: transform 0.5s;
 }
 
-.dropdown_btn.activated .icon-angle-down {
+.dropdown__button--activated > .icon {
     transform: rotate(180deg);
 }
 
-.dropdown_content {
+.dropdown__content {
     position: absolute;
     opacity: 0;
     transform: translateY(-10px);
@@ -272,22 +279,23 @@ input[type="color"] {
     transition: 0.5s;
 }
 
-.dropdown_content.dropdown_reveal {
+.dropdown__content--reveal {
     opacity: 1;
     transform: translateY(0);
     pointer-events: all;
 }
 
-#fontList {
+#font-list {
     width: 250px;
     top: calc(100% + 10px);
     right: 0;
+    text-align: center;
     background: #121212;
     border: 1px solid #333;
     border-radius: 10px;
 }
 
-#fontList li {
+#font-list li {
     padding: 10px;
     cursor: pointer;
 }

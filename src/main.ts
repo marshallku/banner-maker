@@ -12,20 +12,22 @@ function main() {
 
         const target = <HTMLElement>document.getElementById(id);
 
-        target.classList.toggle("dropdown_reveal");
-        document.querySelectorAll(".dropdown_reveal").forEach((element) => {
-            if (element !== target) {
-                element.classList.remove("dropdown_reveal");
-            }
-        });
+        target.classList.toggle("dropdown__content--reveal");
+        document
+            .querySelectorAll(".dropdown__content--reveal")
+            .forEach((element) => {
+                if (element !== target) {
+                    element.classList.remove("dropdown__content--reveal");
+                }
+            });
     }
 
     document
-        .querySelectorAll<HTMLElement>(".dropdown_btn")
+        .querySelectorAll<HTMLElement>(".dropdown__button")
         .forEach((element) => {
             element.addEventListener("click", () => {
                 dropdown(element.dataset.dropdown);
-                element.classList.toggle("activated");
+                element.classList.toggle("dropdown__button--activated");
             });
         });
 
@@ -56,16 +58,18 @@ function main() {
 
         if (
             !target.matches(
-                ".dropdown_btn, .dropdown_reveal, .dropdown_reveal *"
+                ".dropdown__button, .dropdown__button *, .dropdown__content--reveal, .dropdown__content--reveal *"
             )
         ) {
-            document.querySelectorAll(".dropdown_btn").forEach((element) => {
-                element.classList.remove("activated");
-            });
             document
-                .querySelectorAll(".dropdown_content")
+                .querySelectorAll(".dropdown__button")
                 .forEach((element) => {
-                    element.classList.remove("dropdown_reveal");
+                    element.classList.remove("dropdown__button--activated");
+                });
+            document
+                .querySelectorAll(".dropdown__content")
+                .forEach((element) => {
+                    element.classList.remove("dropdown__content--reveal");
                 });
         }
     });
