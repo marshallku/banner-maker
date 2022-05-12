@@ -7,11 +7,27 @@ export default function Input({
     className,
     type = "text",
     value,
+    onChange,
 }: InputProps) {
     return el(
         "div",
         { className: fcls("inputWrap", className) },
         el("span", {}, title),
-        el("input", { id, type, value })
+        el("input", {
+            id,
+            type,
+            value,
+            events: {
+                change: (event) => {
+                    onChange?.(event);
+                },
+                keydown: (event) => {
+                    onChange?.(event);
+                },
+                keyup: (event) => {
+                    onChange?.(event);
+                },
+            },
+        })
     );
 }

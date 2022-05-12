@@ -4,4 +4,5 @@ interface InputProps {
     className?: string;
     type?: string;
     value?: string;
+    onChange?: (event: Event) => void;
 }
