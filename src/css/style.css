@@ -250,6 +250,10 @@ input[type="color"] {
     user-select: none;
 }
 
+.dropdown_btn > span {
+    pointer-events: none;
+}
+
 .dropdown_btn .icon-angle-down {
     position: absolute;
     right: 10px;
