@@ -1,6 +1,5 @@
 import { canvasStore } from "../store";
 import el from "../utils/el";
-import DownloadButton from "./DownloadButton";
 import Input from "./Input";
 import SelectFont from "./SelectFont";
 import SelectImage from "./SelectImage";
@@ -69,7 +68,6 @@ export default function Option() {
                 setBackgroundColor(target.value);
             },
         }),
-        SelectImage(),
-        DownloadButton()
+        SelectImage()
     );
 }
