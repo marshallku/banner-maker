@@ -58,7 +58,7 @@ export default function SelectImage() {
             "label",
             {
                 htmlFor: "background-image",
-                className: "button",
+                className: "button option__input",
             },
             eln(
                 "svg",
