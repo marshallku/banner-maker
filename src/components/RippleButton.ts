@@ -29,8 +29,6 @@ export default function RippleButton({
                         return;
                     }
 
-                    console.log("hi");
-
                     const rect = target.getBoundingClientRect();
                     const ripple = el("div", {
                         className: "material-ripple__animate",

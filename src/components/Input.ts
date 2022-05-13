@@ -21,10 +21,7 @@ export default function Input({
                 change: (event) => {
                     onChange?.(event);
                 },
-                keydown: (event) => {
-                    onChange?.(event);
-                },
-                keyup: (event) => {
+                input: (event) => {
                     onChange?.(event);
                 },
             },
