@@ -6,12 +6,7 @@ export default function RippleButton({
     style,
     onClick,
     value,
-}: {
-    className?: string;
-    style: Partial<CSSStyleDeclaration>;
-    onClick: () => void;
-    value: string;
-}) {
+}: RippleButtonProps) {
     return el(
         "button",
         {
