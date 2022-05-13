@@ -1,5 +1,5 @@
 import bindMethods from "../utils/bindMethods";
-import getRandomColor from "../utils/getRandomColor";
+import { getProperColor, getRandomColor } from "../utils/getColor";
 
 export default class CanvasStore extends EventTarget {
     canvas?: HTMLCanvasElement;
@@ -15,6 +15,8 @@ export default class CanvasStore extends EventTarget {
 
     constructor() {
         const defaultSize = +import.meta.env.VITE_CANVAS_SIZE;
+        const backgroundColor = getRandomColor();
+        const fontColor = getProperColor(backgroundColor);
 
         super();
         this.width = defaultSize;
@@ -22,8 +24,8 @@ export default class CanvasStore extends EventTarget {
         this.text = "Sample Text";
         this.font = "sans-serif";
         this.fontSize = 64;
-        this.fontColor = "#ffffff";
-        this.backgroundColor = getRandomColor();
+        this.fontColor = fontColor;
+        this.backgroundColor = backgroundColor;
         this.backgroundOpacity = 0.5;
         bindMethods(this);
     }
