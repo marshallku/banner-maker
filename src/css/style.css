@@ -127,14 +127,14 @@ input[type="color"] {
     overflow: hidden;
 }
 
-.material-ripple .animate {
+.material-ripple__animate {
     width: 2px;
     height: 2px;
     position: absolute;
     border-radius: 50%;
     background: #bdc3c7;
     pointer-events: none;
-    animation: materialRipple 0.5s linear;
+    animation: materialRipple forwards 0.5s linear;
 }
 
 .input {
@@ -285,7 +285,7 @@ input[type="color"] {
     pointer-events: all;
 }
 
-#font-list {
+.font-list {
     width: 250px;
     top: calc(100% + 10px);
     right: 0;
@@ -295,7 +295,7 @@ input[type="color"] {
     border-radius: 10px;
 }
 
-#font-list li {
+.font-list__item {
+    width: 100%;
     padding: 10px;
-    cursor: pointer;
 }

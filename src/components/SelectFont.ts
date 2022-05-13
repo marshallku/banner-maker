@@ -1,5 +1,6 @@
 import { canvasStore } from "../store";
 import el, { eln } from "../utils/el";
+import RippleButton from "./RippleButton";
 
 export default function SelectFont() {
     const { font, setFont } = canvasStore;
@@ -16,31 +17,26 @@ export default function SelectFont() {
     const Button = (text: string) =>
         el(
             "li",
-            {
-                className: "material-ripple",
-                style: {
-                    fontFamily: text,
+            {},
+            RippleButton({
+                className: "font-list__item",
+                style: { fontFamily: text },
+                value: text,
+                onClick: () => {
+                    setFont(text);
                 },
-                events: {
-                    click() {
-                        setFont(text);
-                    },
-                },
-            },
-            text
+            })
         );
+
     const DropdownContent = el(
         "ul",
-        { id: "font-list", className: "dropdown__content" },
+        { className: "dropdown__content font-list" },
         ...fonts.map((x) => Button(x))
     );
     const DropdownButton = el(
         "div",
         {
             className: "dropdown__button",
-            dataset: {
-                dropdown: "font-list",
-            },
             events: {
                 click(event) {
                     const { target } = event;
