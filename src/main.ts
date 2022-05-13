@@ -5,32 +5,6 @@ import "./css/style.css";
 
 // TODO: Move everything below to dedicated components
 function main() {
-    function dropdown(id?: string) {
-        if (!id) {
-            return;
-        }
-
-        const target = <HTMLElement>document.getElementById(id);
-
-        target.classList.toggle("dropdown__content--reveal");
-        document
-            .querySelectorAll(".dropdown__content--reveal")
-            .forEach((element) => {
-                if (element !== target) {
-                    element.classList.remove("dropdown__content--reveal");
-                }
-            });
-    }
-
-    document
-        .querySelectorAll<HTMLElement>(".dropdown__button")
-        .forEach((element) => {
-            element.addEventListener("click", () => {
-                dropdown(element.dataset.dropdown);
-                element.classList.toggle("dropdown__button--activated");
-            });
-        });
-
     document
         .querySelectorAll<HTMLElement>(".material-ripple")
         .forEach((element) => {
@@ -52,27 +26,6 @@ function main() {
                 }, 500);
             });
         });
-
-    window.addEventListener("click", (event) => {
-        const target = <HTMLElement>event.target;
-
-        if (
-            !target.matches(
-                ".dropdown__button, .dropdown__button *, .dropdown__content--reveal, .dropdown__content--reveal *"
-            )
-        ) {
-            document
-                .querySelectorAll(".dropdown__button")
-                .forEach((element) => {
-                    element.classList.remove("dropdown__button--activated");
-                });
-            document
-                .querySelectorAll(".dropdown__content")
-                .forEach((element) => {
-                    element.classList.remove("dropdown__content--reveal");
-                });
-        }
-    });
 }
 
 document.getElementById("app")!.append(App());
