@@ -76,9 +76,7 @@ export default class CanvasStore extends EventTarget {
         const img = document.createElement("img");
 
         reader.readAsDataURL(backgroundImage);
-        reader.addEventListener("load", (event) => {
-            const { target } = event;
-
+        reader.addEventListener("load", ({ target }) => {
             if (!target) {
                 return;
             }

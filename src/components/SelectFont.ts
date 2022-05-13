@@ -38,9 +38,7 @@ export default function SelectFont() {
         {
             className: "dropdown__button",
             events: {
-                click(event) {
-                    const { target } = event;
-
+                click({ target }) {
                     if (!(target instanceof HTMLElement)) {
                         return;
                     }
@@ -66,17 +64,18 @@ export default function SelectFont() {
         CurrentFont.innerText = canvasStore.font;
     });
 
-    window.addEventListener("click", (event) => {
-        const target = <HTMLElement>event.target;
-
+    window.addEventListener("click", ({ target }) => {
         if (
-            !target.matches(
+            !(target instanceof HTMLElement) ||
+            target.matches(
                 ".dropdown__button, .dropdown__button *, .dropdown__content--reveal, .dropdown__content--reveal *"
             )
         ) {
-            DropdownButton.classList.remove("dropdown__button--activated");
-            DropdownContent.classList.remove("dropdown__content--reveal");
+            return;
         }
+
+        DropdownButton.classList.remove("dropdown__button--activated");
+        DropdownContent.classList.remove("dropdown__content--reveal");
     });
 
     return el(

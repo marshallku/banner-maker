@@ -3,9 +3,7 @@ import el from "../utils/el";
 
 export default function Textarea() {
     const { setText } = canvasStore;
-    const handleChange = (event: Event) => {
-        const { target } = event;
-
+    const handleChange = ({ target }: Event) => {
         if (!(target instanceof HTMLTextAreaElement)) {
             return;
         }

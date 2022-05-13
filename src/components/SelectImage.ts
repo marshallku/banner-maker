@@ -13,18 +13,14 @@ export default function SelectImage() {
             min: "0",
             max: "100",
             events: {
-                change(event) {
-                    const { target } = event;
-
+                change({ target }) {
                     if (!(target instanceof HTMLInputElement)) {
                         return;
                     }
 
                     setBackgroundOpacity((100 - +target.value) / 100);
                 },
-                mousemove(event) {
-                    const { target } = event;
-
+                mousemove({ target }) {
                     if (!(target instanceof HTMLInputElement)) {
                         return;
                     }
@@ -43,9 +39,7 @@ export default function SelectImage() {
             id: "background-image",
             hidden: true,
             events: {
-                change(event) {
-                    const { target } = event;
-
+                change({ target }) {
                     if (
                         !(target instanceof HTMLInputElement) ||
                         !target.files

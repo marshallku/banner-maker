@@ -25,9 +25,7 @@ export default function Option() {
             className: "option__input",
             type: "number",
             value: `${fontSize}`,
-            onChange(event) {
-                const { target } = event;
-
+            onChange({ target }) {
                 if (!(target instanceof HTMLInputElement)) {
                     return;
                 }
@@ -40,9 +38,7 @@ export default function Option() {
             className: "option__input",
             type: "color",
             value: fontColor,
-            onChange(event) {
-                const { target } = event;
-
+            onChange({ target }) {
                 if (!(target instanceof HTMLInputElement)) {
                     return;
                 }
@@ -55,9 +51,7 @@ export default function Option() {
             className: "option__input",
             type: "color",
             value: backgroundColor,
-            onChange(event) {
-                const { target } = event;
-
+            onChange({ target }) {
                 if (!(target instanceof HTMLInputElement)) {
                     return;
                 }

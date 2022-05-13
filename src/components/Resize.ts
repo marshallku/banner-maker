@@ -14,9 +14,7 @@ export default function Resize() {
             className: "size__input",
             type: "number",
             value: canvasSize,
-            onChange: (event) => {
-                const { target } = event;
-
+            onChange: ({ target }) => {
                 if (!(target instanceof HTMLInputElement)) {
                     return;
                 }
@@ -29,9 +27,7 @@ export default function Resize() {
             className: "size__input",
             type: "number",
             value: canvasSize,
-            onChange: (event) => {
-                const { target } = event;
-
+            onChange: ({ target }) => {
                 if (!(target instanceof HTMLInputElement)) {
                     return;
                 }
