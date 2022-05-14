@@ -14,13 +14,12 @@ export default class CanvasStore extends EventTarget {
     backgroundOpacity: number;
 
     constructor() {
-        const defaultSize = +import.meta.env.VITE_CANVAS_SIZE;
         const backgroundColor = getRandomColor();
         const fontColor = getProperColor(backgroundColor);
 
         super();
-        this.width = defaultSize;
-        this.height = defaultSize;
+        this.width = 700;
+        this.height = 700;
         this.text = "Sample Text";
         this.font = "sans-serif";
         this.fontSize = 64;
