@@ -108,9 +108,9 @@ input[type="color"] {
     text-decoration: none;
     justify-content: center;
     align-items: center;
-    border-radius: 4px;
+    border-radius: 5px;
     padding: 10px 15px;
-    box-shadow: #333 0 0 0 2px inset;
+    box-shadow: #333 0 0 0 1px inset;
     transition: 0.3s cubic-bezier(0.39, 0.5, 0.15, 1);
 }
 
@@ -277,6 +277,16 @@ input[type="color"] {
     transform: translateY(-10px);
     pointer-events: none;
     transition: 0.5s;
+    scrollbar-width: thin;
+}
+
+.dropdown__content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown__content::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 12px;
 }
 
 .dropdown__content--reveal {
@@ -287,12 +297,14 @@ input[type="color"] {
 
 .font-list {
     width: 250px;
+    max-height: 18rem;
     top: calc(100% + 10px);
     right: 0;
     text-align: center;
     background: #121212;
     border: 1px solid #333;
-    border-radius: 10px;
+    border-radius: 5px;
+    overflow-y: auto;
 }
 
 .font-list__item {
