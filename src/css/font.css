@@ -27,3 +27,21 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: "Cafe24Ssurround";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "EarlyFontDiary";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2")
+        format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

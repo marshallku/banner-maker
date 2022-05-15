@@ -13,6 +13,8 @@ export default function SelectFont() {
         "BMJUA",
         "Black Han Sans",
         "ghanachoco",
+        "Cafe24Ssurround",
+        "EarlyFontDiary",
     ];
     const Button = (text: string) =>
         el(
