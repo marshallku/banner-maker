@@ -72,7 +72,12 @@ export default function el<
         if (key === "style") {
             Object.entries(value as CSSStyleDeclaration).forEach(
                 ([styleAttribute, styleValue]) => {
-                    node.style[styleAttribute as "width"] = styleValue;
+                    if (styleAttribute in node.style) {
+                        node.style[styleAttribute as "width"] = styleValue;
+                        return;
+                    }
+
+                    node.style.setProperty(styleAttribute, styleValue);
                 }
             );
             return;

@@ -30,6 +30,7 @@ export default function RippleButton({
                         style: {
                             left: `${event.x - rect.left}px`,
                             top: `${event.y - rect.top}px`,
+                            "--material-scale": `${target.offsetWidth}`,
                         },
                         events: {
                             animationend({ target: animationTarget }) {
@@ -42,10 +43,6 @@ export default function RippleButton({
                         },
                     });
 
-                    ripple.style.setProperty(
-                        "--material-scale",
-                        `${target.offsetWidth}`
-                    );
                     target.append(ripple);
                 },
             },

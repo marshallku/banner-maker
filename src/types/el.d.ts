@@ -24,7 +24,7 @@ interface CustomDataset {
 
 interface CustomEventObject<T extends CustomElementKeys> {
     events: Partial<CustomEvents<T>>;
-    style: Partial<CSSStyleDeclaration>;
+    style: Partial<CSSStyleDeclaration> | { [key: string]: string };
     dataset: CustomDataset;
 }
 
