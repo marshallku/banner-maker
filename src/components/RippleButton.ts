@@ -25,25 +25,31 @@ export default function RippleButton({
                     }
 
                     const rect = target.getBoundingClientRect();
-                    const ripple = el("div", {
-                        className: "material-ripple__animate",
-                        style: {
-                            left: `${event.x - rect.left}px`,
-                            top: `${event.y - rect.top}px`,
-                            "--material-scale": `${target.offsetWidth}`,
-                        },
-                        events: {
-                            animationend({ target: animationTarget }) {
-                                if (!(animationTarget instanceof HTMLElement)) {
-                                    return;
-                                }
 
-                                animationTarget.remove();
+                    target.append(
+                        el("div", {
+                            className: "material-ripple__animate",
+                            style: {
+                                left: `${event.x - rect.left}px`,
+                                top: `${event.y - rect.top}px`,
+                                "--material-scale": `${target.offsetWidth}`,
                             },
-                        },
-                    });
+                            events: {
+                                animationend({ target: animationTarget }) {
+                                    if (
+                                        !(
+                                            animationTarget instanceof
+                                            HTMLElement
+                                        )
+                                    ) {
+                                        return;
+                                    }
 
-                    target.append(ripple);
+                                    animationTarget.remove();
+                                },
+                            },
+                        })
+                    );
                 },
             },
         },

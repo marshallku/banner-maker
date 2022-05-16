@@ -14,12 +14,10 @@ export default function DownloadButton() {
                         return;
                     }
 
-                    const anchor = el("a", {
+                    el("a", {
                         download: text,
                         href: canvas.toDataURL(),
-                    });
-
-                    anchor.click();
+                    }).click();
                 },
             },
         },
