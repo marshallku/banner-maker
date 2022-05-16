@@ -18,14 +18,14 @@ export default function SelectImage() {
                         return;
                     }
 
-                    setBackgroundOpacity((100 - +target.value) / 100);
+                    setBackgroundOpacity((100 - target.valueAsNumber) / 100);
                 },
                 mousemove({ target }) {
                     if (!(target instanceof HTMLInputElement)) {
                         return;
                     }
 
-                    setBackgroundOpacity((100 - +target.value) / 100);
+                    setBackgroundOpacity((100 - target.valueAsNumber) / 100);
                 },
             },
         })

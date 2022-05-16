@@ -30,7 +30,7 @@ export default function Option() {
                     return;
                 }
 
-                setFontSize(+target.value);
+                setFontSize(target.valueAsNumber);
             },
         }),
         Input({
