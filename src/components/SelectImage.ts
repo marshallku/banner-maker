@@ -3,7 +3,9 @@ import el, { eln } from "../utils/el";
 
 export default function SelectImage() {
     const { setBackgroundImage, setBackgroundOpacity } = canvasStore;
-    const TransparencyInput = el(
+    const convertTransparencyToOpacity = (transparency: number) =>
+        (100 - transparency) / 100;
+    const OpacityInput = el(
         "div",
         { className: "input input--opacity input--hidden" },
         el("span", { className: "input__title" }, "Image Opacity"),
@@ -18,14 +20,18 @@ export default function SelectImage() {
                         return;
                     }
 
-                    setBackgroundOpacity((100 - target.valueAsNumber) / 100);
+                    setBackgroundOpacity(
+                        convertTransparencyToOpacity(target.valueAsNumber)
+                    );
                 },
                 input({ target }) {
                     if (!(target instanceof HTMLInputElement)) {
                         return;
                     }
 
-                    setBackgroundOpacity((100 - target.valueAsNumber) / 100);
+                    setBackgroundOpacity(
+                        convertTransparencyToOpacity(target.valueAsNumber)
+                    );
                 },
             },
         })
@@ -50,7 +56,7 @@ export default function SelectImage() {
                     const file = target.files[0];
 
                     setBackgroundImage(file);
-                    TransparencyInput.classList.remove("input--hidden");
+                    OpacityInput.classList.remove("input--hidden");
                 },
             },
         }),
@@ -69,6 +75,6 @@ export default function SelectImage() {
             ),
             "Upload Background Image"
         ),
-        TransparencyInput
+        OpacityInput
     );
 }
