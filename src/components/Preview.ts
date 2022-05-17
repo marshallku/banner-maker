@@ -63,11 +63,7 @@ export default function Preview() {
             height / 2 - (0.5 * lines.length - 0.5) * lineHeight;
 
         lines.forEach((line, index) => {
-            ctx.fillText(
-                line,
-                canvas.width / 2,
-                firstLineCoord + index * lineHeight
-            );
+            ctx.fillText(line, width / 2, firstLineCoord + index * lineHeight);
         });
     };
 
