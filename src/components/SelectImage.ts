@@ -20,7 +20,7 @@ export default function SelectImage() {
 
                     setBackgroundOpacity((100 - target.valueAsNumber) / 100);
                 },
-                mousemove({ target }) {
+                input({ target }) {
                     if (!(target instanceof HTMLInputElement)) {
                         return;
                     }
