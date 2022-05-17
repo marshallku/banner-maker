@@ -74,7 +74,6 @@ export default class CanvasStore extends EventTarget {
 
     setBackgroundImage(backgroundImage: File) {
         const reader = new FileReader();
-        const img = document.createElement("img");
 
         reader.readAsDataURL(backgroundImage);
         reader.addEventListener("load", ({ target }) => {
@@ -87,6 +86,8 @@ export default class CanvasStore extends EventTarget {
             if (!result || typeof result !== "string") {
                 return;
             }
+
+            const img = document.createElement("img");
 
             img.src = result;
             img.addEventListener("load", () => {
