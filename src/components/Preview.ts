@@ -59,14 +59,14 @@ export default function Preview() {
 
         const lines = text.split("\n");
         const lineHeight = fontSize * 1.5;
-        const firstLineCord =
+        const firstLineCoord =
             height / 2 - (0.5 * lines.length - 0.5) * lineHeight;
 
         lines.forEach((line, index) => {
             ctx.fillText(
                 line,
                 canvas.width / 2,
-                firstLineCord + index * lineHeight
+                firstLineCoord + index * lineHeight
             );
         });
     };
