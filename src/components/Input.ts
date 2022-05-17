@@ -18,10 +18,10 @@ export default function Input({
             type,
             value,
             events: {
-                change: (event) => {
+                change(event) {
                     onChange?.(event);
                 },
-                input: (event) => {
+                input(event) {
                     onChange?.(event);
                 },
             },

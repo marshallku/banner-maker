@@ -13,7 +13,7 @@ export default function Resize() {
             className: "size__input",
             type: "number",
             value: `${width}`,
-            onChange: ({ target }) => {
+            onChange({ target }) {
                 if (!(target instanceof HTMLInputElement)) {
                     return;
                 }
@@ -26,7 +26,7 @@ export default function Resize() {
             className: "size__input",
             type: "number",
             value: `${height}`,
-            onChange: ({ target }) => {
+            onChange({ target }) {
                 if (!(target instanceof HTMLInputElement)) {
                     return;
                 }
