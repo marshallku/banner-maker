@@ -2,7 +2,8 @@ import { canvasStore } from "../store";
 import el, { eln } from "../utils/el";
 
 export default function SelectImage() {
-    const { setBackgroundImage, setBackgroundOpacity } = canvasStore;
+    const { backgroundOpacity, setBackgroundImage, setBackgroundOpacity } =
+        canvasStore;
     const convertTransparencyToOpacity = (transparency: number) =>
         (100 - transparency) / 100;
     const OpacityInput = el(
@@ -11,7 +12,7 @@ export default function SelectImage() {
         el("span", { className: "input__title" }, "Image Opacity"),
         el("input", {
             type: "range",
-            value: "50",
+            value: `${backgroundOpacity * 100}`,
             min: "0",
             max: "100",
             events: {
