@@ -4,17 +4,18 @@ import el, { eln } from "../utils/el";
 export default function SelectImage() {
     const { backgroundOpacity, setBackgroundImage, setBackgroundOpacity } =
         canvasStore;
+    const opacityMax = 100;
     const convertTransparencyToOpacity = (transparency: number) =>
-        (100 - transparency) / 100;
+        (opacityMax - transparency) / opacityMax;
     const OpacityInput = el(
         "div",
         { className: "input input--opacity input--hidden" },
         el("span", { className: "input__title" }, "Image Opacity"),
         el("input", {
             type: "range",
-            value: `${backgroundOpacity * 100}`,
+            value: `${backgroundOpacity * opacityMax}`,
             min: "0",
-            max: "100",
+            max: `${opacityMax}`,
             events: {
                 change({ target }) {
                     if (!(target instanceof HTMLInputElement)) {
