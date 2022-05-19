@@ -21,6 +21,7 @@ export default function el<
             childNode instanceof DocumentFragment
         ) {
             node.appendChild(childNode);
+
             return;
         }
 
@@ -32,10 +33,6 @@ export default function el<
     }
 
     Object.entries(attributes).forEach(([key, value]) => {
-        if (!value) {
-            return;
-        }
-
         if (key === "events") {
             Object.entries(value as Partial<CustomEvents<T>>).forEach(
                 ([type, args]) => {
@@ -80,6 +77,7 @@ export default function el<
                     node.style.setProperty(styleAttribute, styleValue);
                 }
             );
+
             return;
         }
 
@@ -90,9 +88,11 @@ export default function el<
                 console.error(error);
                 node.setAttribute(key, value as string);
             }
-        } else {
-            node.setAttribute(key, value as string);
+
+            return;
         }
+
+        node.setAttribute(key, value as string);
     });
 
     return node as U;
@@ -118,6 +118,7 @@ export function eln<
 
         if (childNode instanceof Element) {
             node.appendChild(childNode);
+
             return;
         }
 
@@ -125,10 +126,6 @@ export function eln<
     });
 
     Object.entries(attributes).forEach(([key, value]) => {
-        if (!value) {
-            return;
-        }
-
         if (key === "events") {
             Object.entries(value as Partial<CustomSVGEvents<T>>).forEach(
                 ([type, args]) => {
@@ -154,6 +151,7 @@ export function eln<
 
         if (key === "className") {
             node.classList.add(value);
+
             return;
         }
 
