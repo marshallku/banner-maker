@@ -1,6 +1,7 @@
 import { canvasStore } from "../store";
 import el from "../utils/el";
 import Input from "./Input";
+import Resize from "./Resize";
 import SelectFont from "./SelectFont";
 import SelectImage from "./SelectImage";
 import Textarea from "./Textarea";
@@ -18,6 +19,7 @@ export default function Option() {
     return el(
         "div",
         { className: "option" },
+        Resize(),
         Textarea(),
         SelectFont(),
         Input({
