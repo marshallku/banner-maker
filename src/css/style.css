@@ -29,11 +29,21 @@ body {
     padding: 20px 10px;
 }
 
-#app {
+@media screen and (min-width: 1100px) {
+    #app {
+        display: flex;
+    }
+
+    .app__col {
+        width: 50%;
+        padding: 10px;
+    }
+}
+
+.app__col {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 body,
