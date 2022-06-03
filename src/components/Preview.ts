@@ -14,8 +14,12 @@ export default function Preview() {
             width,
             height,
             text,
+            subheading,
+            tag,
             font,
             fontSize,
+            subheadingSize,
+            tagSize,
             fontColor,
             backgroundColor,
             backgroundImage,
@@ -53,18 +57,31 @@ export default function Preview() {
         }
 
         ctx.textAlign = "center";
-        ctx.font = `${fontSize}px ${font}`;
         ctx.textBaseline = "middle";
         ctx.fillStyle = fontColor;
 
+        // Title
         const lines = text.split("\n");
         const lineHeight = fontSize * 1.5;
         const firstLineCoord =
             height / 2 - (0.5 * lines.length - 0.5) * lineHeight;
 
+        ctx.font = `${fontSize}px ${font}`;
         lines.forEach((line, index) => {
             ctx.fillText(line, width / 2, firstLineCoord + index * lineHeight);
         });
+
+        // Subheading
+        ctx.font = `${subheadingSize}px ${font}`;
+        ctx.fillText(
+            subheading,
+            width / 2,
+            firstLineCoord + (lines.length - 1) * lineHeight + lineHeight / 2
+        );
+
+        // Tag
+        ctx.font = `${tagSize}px ${font}`;
+        ctx.fillText(tag, width / 2, height - 32);
     };
 
     canvasStore.addEventListener("update", render);

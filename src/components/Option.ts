@@ -9,9 +9,13 @@ import Textarea from "./Textarea";
 export default function Option() {
     const {
         fontSize,
+        subheadingSize,
+        tagSize,
         fontColor,
         backgroundColor,
         setFontSize,
+        setSubheadingSize,
+        setTagSize,
         setFontColor,
         setBackgroundColor,
     } = canvasStore;
@@ -33,6 +37,32 @@ export default function Option() {
                 }
 
                 setFontSize(target.valueAsNumber);
+            },
+        }),
+        Input({
+            title: "Font Size(subheading)",
+            className: "option__input",
+            type: "number",
+            value: `${subheadingSize}`,
+            onChange({ target }) {
+                if (!(target instanceof HTMLInputElement)) {
+                    return;
+                }
+
+                setSubheadingSize(target.valueAsNumber);
+            },
+        }),
+        Input({
+            title: "Font Size(tag)",
+            className: "option__input",
+            type: "number",
+            value: `${tagSize}`,
+            onChange({ target }) {
+                if (!(target instanceof HTMLInputElement)) {
+                    return;
+                }
+
+                setTagSize(target.valueAsNumber);
             },
         }),
         Input({

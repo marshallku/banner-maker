@@ -6,8 +6,12 @@ export default class CanvasStore extends EventTarget {
     width: number;
     height: number;
     text: string;
+    subheading: string;
+    tag: string;
     font: string;
     fontSize: number;
+    subheadingSize: number;
+    tagSize: number;
     fontColor: string;
     backgroundColor: string;
     backgroundImage?: HTMLImageElement;
@@ -21,8 +25,12 @@ export default class CanvasStore extends EventTarget {
         this.width = 700;
         this.height = 700;
         this.text = "Sample Text";
+        this.subheading = "";
+        this.tag = "";
         this.font = "sans-serif";
         this.fontSize = 64;
+        this.subheadingSize = 32;
+        this.tagSize = 32;
         this.fontColor = fontColor;
         this.backgroundColor = backgroundColor;
         this.backgroundOpacity = 0.5;
@@ -52,6 +60,16 @@ export default class CanvasStore extends EventTarget {
         this.#update();
     }
 
+    setSubheading(subheading: string) {
+        this.subheading = subheading;
+        this.#update();
+    }
+
+    setTag(tag: string) {
+        this.tag = tag;
+        this.#update();
+    }
+
     setFont(font: string) {
         this.font = font;
         this.#update();
@@ -59,6 +77,16 @@ export default class CanvasStore extends EventTarget {
 
     setFontSize(fontSize: number) {
         this.fontSize = fontSize;
+        this.#update();
+    }
+
+    setSubheadingSize(subheadingSize: number) {
+        this.subheadingSize = subheadingSize;
+        this.#update();
+    }
+
+    setTagSize(tagSize: number) {
+        this.tagSize = tagSize;
         this.#update();
     }
 
