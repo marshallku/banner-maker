@@ -3,13 +3,6 @@ import el from "../utils/el";
 
 export default function Textarea() {
     const { setText } = canvasStore;
-    const handleChange = ({ target }: Event) => {
-        if (!(target instanceof HTMLTextAreaElement)) {
-            return;
-        }
-
-        setText(target.value);
-    };
 
     return el(
         "div",
@@ -20,9 +13,13 @@ export default function Textarea() {
             ariaLabel: "Type Here!",
             rows: 2,
             events: {
-                change: handleChange,
-                keydown: handleChange,
-                keyup: handleChange,
+                input({ target }) {
+                    if (!(target instanceof HTMLTextAreaElement)) {
+                        return;
+                    }
+
+                    setText(target.value);
+                },
             },
         }),
         el("div", { className: "text__line text__line--top" }),
