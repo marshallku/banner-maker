@@ -213,6 +213,19 @@ input[type="color"] {
     margin-bottom: 1.5rem;
 }
 
+.text__label {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+.text__title {
+    padding: 10px;
+    line-height: 1.5;
+    border-bottom: 1px solid #333;
+}
+
 .text__input {
     width: 90vw;
     max-width: 300px;
@@ -229,30 +242,6 @@ input[type="color"] {
 
 .text__input:focus::placeholder {
     opacity: 0;
-}
-
-.text__line {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    border-bottom: 1px solid #fff;
-    transform: scale(0);
-    opacity: 0;
-    transition: 0.5s;
-}
-
-.text__line--top {
-    bottom: auto;
-    top: 0;
-}
-
-.text__input:focus ~ .text__line,
-.text__input:hover ~ .text__line {
-    transform: scaleX(1);
-    opacity: 1;
 }
 
 .download-button {

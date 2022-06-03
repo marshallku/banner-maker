@@ -7,22 +7,25 @@ export default function Textarea() {
     return el(
         "div",
         { className: "text" },
-        el("textarea", {
-            className: "text__input",
-            placeholder: "Type Here!",
-            ariaLabel: "Type Here!",
-            rows: 2,
-            events: {
-                input({ target }) {
-                    if (!(target instanceof HTMLTextAreaElement)) {
-                        return;
-                    }
+        el(
+            "label",
+            { className: "text__label" },
+            el("span", { className: "text__title" }, "Title"),
+            el("textarea", {
+                className: "text__input",
+                placeholder: "Type Here!",
+                ariaLabel: "Type Here!",
+                rows: 2,
+                events: {
+                    input({ target }) {
+                        if (!(target instanceof HTMLTextAreaElement)) {
+                            return;
+                        }
 
-                    setText(target.value);
+                        setText(target.value);
+                    },
                 },
-            },
-        }),
-        el("div", { className: "text__line text__line--top" }),
-        el("div", { className: "text__line" })
+            })
+        )
     );
 }
