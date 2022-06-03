@@ -166,7 +166,6 @@ input[type="color"] {
 
 .input__title {
     flex-shrink: 0;
-    box-sizing: content-box;
     border-right: 1px solid #333;
 }
 
