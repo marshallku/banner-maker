@@ -3,6 +3,7 @@ import fcls from "../utils/fcls";
 
 export default function Input({
     title,
+    subheading,
     id,
     className,
     type = "text",
@@ -11,8 +12,20 @@ export default function Input({
 }: InputProps) {
     return el(
         "div",
-        { className: fcls("input", className) },
-        el("span", { className: "input__title" }, title),
+        {
+            className: fcls("input", className),
+        },
+        el(
+            "span",
+            {
+                className: fcls(
+                    "input__title",
+                    subheading && "input__title--subheading"
+                ),
+            },
+            title,
+            subheading && el("span", {}, subheading)
+        ),
         el("input", {
             id,
             type,
