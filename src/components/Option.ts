@@ -28,6 +28,7 @@ export default function Option() {
         SelectFont(),
         Input({
             title: "Font Size",
+            subheading: "(title)",
             className: "option__input",
             type: "number",
             value: `${fontSize}`,
@@ -40,7 +41,8 @@ export default function Option() {
             },
         }),
         Input({
-            title: "Font Size(subheading)",
+            title: "Font Size",
+            subheading: "(subheading)",
             className: "option__input",
             type: "number",
             value: `${subheadingSize}`,
@@ -53,7 +55,8 @@ export default function Option() {
             },
         }),
         Input({
-            title: "Font Size(tag)",
+            title: "Font Size",
+            subheading: "(tag)",
             className: "option__input",
             type: "number",
             value: `${tagSize}`,
