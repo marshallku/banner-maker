@@ -1,9 +1,9 @@
+import crtElt from "crtelt";
 import { canvasStore } from "../store";
-import el from "../utils/el";
 
 export default function Preview() {
     const { setCanvas } = canvasStore;
-    const canvas = el("canvas", {
+    const canvas = crtElt("canvas", {
         className: "canvas",
         width: canvasStore.width,
         height: canvasStore.height,
@@ -88,5 +88,5 @@ export default function Preview() {
     render();
     setCanvas(canvas);
 
-    return el("div", {}, canvas);
+    return crtElt("div", {}, canvas);
 }

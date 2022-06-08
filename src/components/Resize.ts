@@ -1,11 +1,11 @@
+import crtElt from "crtelt";
 import { canvasStore } from "../store";
-import el from "../utils/el";
 import Input from "./Input";
 
 export default function Resize() {
     const { width, height, setWidth, setHeight } = canvasStore;
 
-    return el(
+    return crtElt(
         "div",
         { className: "size" },
         Input({

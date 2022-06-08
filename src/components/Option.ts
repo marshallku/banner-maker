@@ -1,5 +1,5 @@
+import crtElt from "crtelt";
 import { canvasStore } from "../store";
-import el from "../utils/el";
 import Input from "./Input";
 import Resize from "./Resize";
 import SelectFont from "./SelectFont";
@@ -20,7 +20,7 @@ export default function Option() {
         setBackgroundColor,
     } = canvasStore;
 
-    return el(
+    return crtElt(
         "div",
         { className: "option" },
         Resize(),

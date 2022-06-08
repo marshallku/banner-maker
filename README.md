@@ -9,4 +9,4 @@ Design your own banner with HTML5 Canvas
 
 ---
 
-Built with vanilla TypeScript, and Vite
+Built with vanilla TypeScript, [crtElt](https://github.com/marshallku/crtElt) (my own utility), and Vite

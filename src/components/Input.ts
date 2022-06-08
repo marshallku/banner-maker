@@ -1,4 +1,4 @@
-import el from "../utils/el";
+import crtElt from "crtelt";
 import fcls from "../utils/fcls";
 
 export default function Input({
@@ -10,12 +10,12 @@ export default function Input({
     value,
     onChange,
 }: InputProps) {
-    return el(
+    return crtElt(
         "div",
         {
             className: fcls("input", className),
         },
-        el(
+        crtElt(
             "span",
             {
                 className: fcls(
@@ -24,9 +24,9 @@ export default function Input({
                 ),
             },
             title,
-            subheading && el("span", {}, subheading)
+            subheading && crtElt("span", {}, subheading)
         ),
-        el("input", {
+        crtElt("input", {
             id,
             type,
             value,

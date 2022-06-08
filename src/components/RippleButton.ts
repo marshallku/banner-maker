@@ -1,4 +1,4 @@
-import el from "../utils/el";
+import crtElt from "crtelt";
 import fcls from "../utils/fcls";
 
 export default function RippleButton({
@@ -7,7 +7,7 @@ export default function RippleButton({
     onClick,
     value,
 }: RippleButtonProps) {
-    return el(
+    return crtElt(
         "button",
         {
             className: fcls("material-ripple", className),
@@ -27,7 +27,7 @@ export default function RippleButton({
                     const rect = target.getBoundingClientRect();
 
                     target.append(
-                        el("div", {
+                        crtElt("div", {
                             className: "material-ripple__animate",
                             style: {
                                 left: `${event.x - rect.left}px`,

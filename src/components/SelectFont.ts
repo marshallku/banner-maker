@@ -1,10 +1,10 @@
+import crtElt from "crtelt";
 import { canvasStore } from "../store";
-import el, { eln } from "../utils/el";
 import RippleButton from "./RippleButton";
 
 export default function SelectFont() {
     const { font, setFont } = canvasStore;
-    const CurrentFont = el("span", {}, font);
+    const CurrentFont = crtElt("span", {}, font);
     const fonts = [
         "sans-serif",
         "Noto Sans KR",
@@ -17,7 +17,7 @@ export default function SelectFont() {
         "EarlyFontDiary",
     ];
     const Button = (text: string) =>
-        el(
+        crtElt(
             "li",
             {},
             RippleButton({
@@ -30,12 +30,12 @@ export default function SelectFont() {
             })
         );
 
-    const DropdownContent = el(
+    const DropdownContent = crtElt(
         "ul",
         { className: "dropdown__content font-list" },
         ...fonts.map((x) => Button(x))
     );
-    const DropdownButton = el(
+    const DropdownButton = crtElt(
         "div",
         {
             className: "dropdown__button",
@@ -53,10 +53,10 @@ export default function SelectFont() {
             },
         },
         CurrentFont,
-        eln(
+        crtElt(
             "svg",
             { className: "icon", viewBox: "0 0 288 448" },
-            eln("path", {
+            crtElt("path", {
                 d: "M268.75 184c0 2-1 4.25-2.5 5.75l-116.5 116.5c-1.5 1.5-3.75 2.5-5.75 2.5s-4.25-1-5.75-2.5l-116.5-116.5c-1.5-1.5-2.5-3.75-2.5-5.75s1-4.25 2.5-5.75l12.5-12.5c1.5-1.5 3.5-2.5 5.75-2.5 2 0 4.25 1 5.75 2.5l98.25 98.25 98.25-98.25c1.5-1.5 3.75-2.5 5.75-2.5s4.25 1 5.75 2.5l12.5 12.5c1.5 1.5 2.5 3.75 2.5 5.75z",
             })
         )
@@ -80,10 +80,10 @@ export default function SelectFont() {
         DropdownContent.classList.remove("dropdown__content--reveal");
     });
 
-    return el(
+    return crtElt(
         "div",
         { className: "input dropdown" },
-        el("span", { className: "input__title" }, "Font"),
+        crtElt("span", { className: "input__title" }, "Font"),
         DropdownButton,
         DropdownContent
     );

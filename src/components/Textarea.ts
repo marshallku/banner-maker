@@ -1,20 +1,20 @@
+import crtElt from "crtelt";
 import { canvasStore } from "../store";
-import el from "../utils/el";
 
 export default function Textarea() {
     const { setText, setSubheading, setTag } = canvasStore;
 
-    return el(
+    return crtElt(
         "fragment",
         {},
-        el(
+        crtElt(
             "div",
             { className: "text" },
-            el(
+            crtElt(
                 "label",
                 { className: "text__label" },
-                el("span", { className: "text__title" }, "Title"),
-                el("textarea", {
+                crtElt("span", { className: "text__title" }, "Title"),
+                crtElt("textarea", {
                     className: "text__input",
                     placeholder: "Type Here!",
                     ariaLabel: "Type Here!",
@@ -31,14 +31,14 @@ export default function Textarea() {
                 })
             )
         ),
-        el(
+        crtElt(
             "div",
             { className: "text" },
-            el(
+            crtElt(
                 "label",
                 { className: "text__label" },
-                el("span", { className: "text__title" }, "Subheading"),
-                el("input", {
+                crtElt("span", { className: "text__title" }, "Subheading"),
+                crtElt("input", {
                     className: "text__input",
                     placeholder: "Type Here!",
                     ariaLabel: "Type Here!",
@@ -54,14 +54,14 @@ export default function Textarea() {
                 })
             )
         ),
-        el(
+        crtElt(
             "div",
             { className: "text" },
-            el(
+            crtElt(
                 "label",
                 { className: "text__label" },
-                el("span", { className: "text__title" }, "Tag"),
-                el("input", {
+                crtElt("span", { className: "text__title" }, "Tag"),
+                crtElt("input", {
                     className: "text__input",
                     placeholder: "Type Here!",
                     ariaLabel: "Type Here!",
